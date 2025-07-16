@@ -41,75 +41,96 @@ import walkway3 from './images/portfolio/walk-way/pathway3.jpg';
 import cabro1 from './images/portfolio/cabro-laying/cabro1.jpg';
 import cabro2 from './images/portfolio/cabro-laying/cabro2.jpg';
 import cabro3 from './images/portfolio/cabro-laying/cabro3.jpg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 // import all images from portfolio/artificial-waterfall folder
 import artificialWaterfall1 from './images/portfolio/artificial-waterfall/artificial-water-fall1.jpg';
 import artificialWaterfall2 from './images/portfolio/artificial-waterfall/artificial-waterfall2.jpg';
 import swimmingPoolConstruction from './images/portfolio/artificial-waterfall/swimming-pool-construction.jpg';
 
+// Privacy Policy Page Component
+const PrivacyPolicyPage = () => {
+  const [html, setHtml] = useState("");
+  useEffect(() => {
+    fetch("/privacy-policy.html")
+      .then((res) => res.text())
+      .then((text) => setHtml(text));
+  }, []);
+  return (
+    <div className="min-h-screen bg-white py-8 px-2 flex justify-center items-center">
+      <div style={{width: '100%', maxWidth: 800}}>
+        {/* Render the HTML content safely */}
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+    </div>
+  );
+};
+
+
 // Main App Component
 const App = () => {
   return (
-    <div className="font-sans antialiased text-gray-800 bg-white">
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-green-800 bg-opacity-90 shadow-lg py-4">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <a href="#" className="text-2xl font-bold text-white tracking-wide">ECOGREEN</a>
-          <div className="hidden md:flex space-x-6">
-            <NavLink href="#home">Home</NavLink>
-            <NavLink href="#about">About Us</NavLink>
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#portfolio">Portfolio</NavLink>
-            <NavLink href="#references">References</NavLink>
-            <NavLink href="#blog">Blog</NavLink>
-            <NavLink href="#contact">Contact</NavLink>
-          </div>
-          {/* Mobile Menu Button (Hamburger) */}
-          <MobileMenu />
-        </div>
-      </nav>
-
-      <main>
-        <HeroSection />
-        <AboutUs />
-        <Services />
-        <Portfolio />
-        <References />
-        <BlogSection />
-        <ContactUs />
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-green-900 text-white py-8 px-4">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left items-center">
-          {/* Copyright and Company Info */}
-          <div className="col-span-1">
-            <p>&copy; {new Date().getFullYear()} Ecogreen Landscapers & Contractors.</p>
-            <p className="mt-1">All rights reserved.</p>
-            <p className="mt-1">Designed with passion for a greener world.</p>
-          </div>
-
-          {/* Social Media Links */}
-          <div className="col-span-1 flex justify-center md:justify-start">
-            <a href="https://facebook.com/EcogreenLandscapersAndContractors" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors duration-300">
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-              </svg>
-            </a>
-            {/* Add more social media icons as needed */}
-          </div>
-
-          {/* Our Details (Moved from ContactUs) */}
-          <div className="col-span-1 text-center md:text-right">
-            <h3 className="text-xl font-bold text-green-200 mb-2">Contact Us</h3>
-            <p className="mb-1 text-sm"><strong className="text-green-100">Head Office:</strong> Naivasha Road, P.O. Box 75113 – 00200, Nairobi, Kenya.</p>
-            <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong> Emily Mwaura</p>
-            <p className="mb-1 text-sm"><strong className="text-green-100">Telephone:</strong> <a href="tel:+254727764987" className="text-green-300 hover:underline">+254 727 764987</a> / <a href="tel:+254721474392" className="text-green-300 hover:underline">+254 721 474392</a></p>
-            <p className="mb-1 text-sm"><strong className="text-green-100">Email:</strong> <a href="mailto:ecogreen.l.c@gmail.com" className="text-green-300 hover:underline">ecogreen.l.c@gmail.com</a></p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/user/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/" element={
+          <>
+            <div className="font-sans antialiased text-gray-800 bg-white">
+              {/* Navigation Bar */}
+              <nav className="fixed top-0 left-0 right-0 z-50 bg-green-800 bg-opacity-90 shadow-lg py-4">
+                <div className="container mx-auto px-4 flex justify-between items-center">
+                  <a href="#" className="text-2xl font-bold text-white tracking-wide">ECOGREEN</a>
+                  <div className="hidden md:flex space-x-6">
+                    <NavLink href="#home">Home</NavLink>
+                    <NavLink href="#about">About Us</NavLink>
+                    <NavLink href="#services">Services</NavLink>
+                    <NavLink href="#portfolio">Portfolio</NavLink>
+                    <NavLink href="#references">References</NavLink>
+                    <NavLink href="#blog">Blog</NavLink>
+                    <NavLink href="#contact">Contact</NavLink>
+                  </div>
+                  <MobileMenu />
+                </div>
+              </nav>
+              <main>
+                <HeroSection />
+                <AboutUs />
+                <Services />
+                <Portfolio />
+                <References />
+                <BlogSection />
+                <ContactUs />
+              </main>
+              {/* Footer */}
+              <footer className="bg-green-900 text-white py-8 px-4">
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left items-center">
+                  <div className="col-span-1">
+                    <p>&copy; {new Date().getFullYear()} Ecogreen Landscapers & Contractors.</p>
+                    <p className="mt-1">All rights reserved.</p>
+                    <p className="mt-1">Designed with passion for a greener world.</p>
+                  </div>
+                  <div className="col-span-1 flex justify-center md:justify-start">
+                    <a href="https://facebook.com/EcogreenLandscapersAndContractors" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors duration-300">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                      </svg>
+                    </a>
+                  </div>
+                  <div className="col-span-1 text-center md:text-right">
+                    <h3 className="text-xl font-bold text-green-200 mb-2">Contact Us</h3>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Head Office:</strong> Naivasha Road, P.O. Box 75113 – 00200, Nairobi, Kenya.</p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong> Emily Mwaura</p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Telephone:</strong> <a href="tel:+254727764987" className="text-green-300 hover:underline">+254 727 764987</a> / <a href="tel:+254721474392" className="text-green-300 hover:underline">+254 721 474392</a></p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Email:</strong> <a href="mailto:ecogreen.l.c@gmail.com" className="text-green-300 hover:underline">ecogreen.l.c@gmail.com</a></p>
+                  </div>
+                </div>
+              </footer>
+            </div>
+          </>
+        } />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
