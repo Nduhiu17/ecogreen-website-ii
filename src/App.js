@@ -42,7 +42,6 @@ import cabro1 from './images/portfolio/cabro-laying/cabro1.jpg';
 import cabro2 from './images/portfolio/cabro-laying/cabro2.jpg';
 import cabro3 from './images/portfolio/cabro-laying/cabro3.jpg';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
 
 // import all images from portfolio/artificial-waterfall folder
 import artificialWaterfall1 from './images/portfolio/artificial-waterfall/artificial-water-fall1.jpg';
