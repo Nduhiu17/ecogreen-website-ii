@@ -202,14 +202,16 @@ const ImageSlider = ({ images, title, heightClass = 'h-screen' }) => {
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
-          } bg-cover bg-center flex items-center justify-center`}
+          } bg-cover bg-center flex flex-col justify-end`}
           style={{ backgroundImage: `url(${image.src})` }}
           aria-label={image.alt}
         >
           {image.caption && (
-            <div className="bg-black bg-opacity-50 p-6 rounded-lg text-white text-center max-w-md">
-              <h2 className="text-4xl font-bold mb-2 drop-shadow-lg">{image.caption}</h2>
-              <p className="text-lg drop-shadow-lg">{image.description}</p>
+            <div className="w-full px-2 pb-4 sm:px-6 sm:pb-8 flex justify-center">
+              <div className="bg-black bg-opacity-10 sm:bg-opacity-20 md:bg-opacity-20 lg:bg-opacity-20 xl:bg-opacity-20 rounded-lg text-white text-center max-w-md w-full">
+                <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-1 drop-shadow-lg">{image.caption}</h2>
+                <p className="text-xs sm:text-base md:text-lg drop-shadow-lg">{image.description}</p>
+              </div>
             </div>
           )}
         </div>
@@ -218,30 +220,30 @@ const ImageSlider = ({ images, title, heightClass = 'h-screen' }) => {
       {/* Navigation Buttons */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-colors duration-300 focus:outline-none z-10"
+        className="absolute left-2 sm:left-4 bottom-1/2 sm:top-1/2 transform sm:-translate-y-1/2 bg-black bg-opacity-40 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-60 transition-colors duration-300 focus:outline-none z-10"
         aria-label="Previous image"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
         </svg>
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 transition-colors duration-300 focus:outline-none z-10"
+        className="absolute right-2 sm:right-4 bottom-1/2 sm:top-1/2 transform sm:-translate-y-1/2 bg-black bg-opacity-40 text-white p-2 sm:p-3 rounded-full hover:bg-opacity-60 transition-colors duration-300 focus:outline-none z-10"
         aria-label="Next image"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
         </svg>
       </button>
 
       {/* Dots for navigation */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full ${
+            className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${
               index === currentIndex ? 'bg-white' : 'bg-gray-400'
             } hover:bg-white transition-colors duration-300 focus:outline-none`}
             aria-label={`Go to image ${index + 1}`}
