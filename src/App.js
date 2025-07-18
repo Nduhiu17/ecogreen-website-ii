@@ -90,9 +90,23 @@ const App = () => {
                     <NavLink href="#about">About Us</NavLink>
                     <NavLink href="#services">Services</NavLink>
                     <NavLink href="#portfolio">Portfolio</NavLink>
-                    <NavLink href="#references">References</NavLink>
+                    {/* <NavLink href="#references">References</NavLink> */}
                     <NavLink href="#blog">Blog</NavLink>
-                    <NavLink href="#contact">Contact</NavLink>
+                    {/* WhatsApp Nav Icon */}
+                    <a
+                      href="https://wa.me/254746887291"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-white hover:text-white-300 transition-colors duration-300"
+                      title="Chat with us on WhatsApp"
+                    >
+                      <img
+                        src={require('./images/whatsapp.png').default || require('./images/whatsapp.png')}
+                        alt="WhatsApp"
+                        className="h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-9 lg:h-10 lg:w-10 xl:h-11 xl:w-11 object-contain"
+                        style={{ minWidth: '1.5rem', minHeight: '1.5rem' }}
+                      />
+                    </a>
                   </div>
                   <MobileMenu />
                 </div>
