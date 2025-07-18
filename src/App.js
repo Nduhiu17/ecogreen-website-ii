@@ -264,9 +264,18 @@ const HeroSection = () => {
     { src: hero1, alt: 'Durable Walkways and Paving', caption: 'Pathways to Perfection', description: 'Constructing robust and aesthetically pleasing walkways and roads for lasting appeal.' },
   ];
 
+  // Navbar height: py-4 (1rem top + 1rem bottom) + text height + padding, so about 64px (4rem) on mobile, more on desktop
+  // We'll use min-h-[calc(100vh-64px)] for mobile, and adjust for larger screens
+  // Add margin-top to ensure space between navbar and hero section
+  // Increase margin on small screens, reduce by half on large screens
+  // e.g., mt-24 (6rem) on mobile, mt-12 (3rem) on lg+
   return (
-    <section id="home" className="relative h-screen pt-16">
-      <ImageSlider images={heroImages} title="Ecogreen Landscapers Hero" />
+    <section id="home" className="relative mt-20 sm:mt-12 md:mt-24 lg:mt-30 xl:mt-30">
+      <ImageSlider
+        images={heroImages}
+        title="Ecogreen Landscapers Hero"
+        heightClass="min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] lg:min-h-[calc(100vh-104px)]"
+      />
     </section>
   );
 };
