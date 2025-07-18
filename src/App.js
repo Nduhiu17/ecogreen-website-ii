@@ -146,19 +146,26 @@ const App = () => {
                     <p className="mt-1">All rights reserved.</p>
                     <p className="mt-1">Designed with passion for a greener world.</p>
                   </div>
-                  <div className="col-span-1 flex justify-center md:justify-start">
+                  <div className="col-span-1 flex justify-center md:justify-start space-x-4">
+                    {/* Facebook Icon */}
                     <a href="https://www.facebook.com/profile.php?id=61578337620398" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors duration-300">
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                      </svg>
+                    </a>
+                    {/* Twitter Icon */}
+                    <a href="https://x.com/9Ecogreen" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors duration-300">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.46 5.924c-.793.352-1.646.59-2.542.698a4.48 4.48 0 001.965-2.475 8.94 8.94 0 01-2.828 1.082A4.48 4.48 0 0015.5 4c-2.485 0-4.5 2.015-4.5 4.5 0 .353.04.697.116 1.027C7.728 9.37 4.1 7.6 1.67 4.905c-.387.664-.61 1.437-.61 2.26 0 1.56.794 2.936 2.003 3.744a4.48 4.48 0 01-2.037-.563v.057c0 2.18 1.55 4.002 3.604 4.417-.377.103-.775.158-1.186.158-.29 0-.57-.028-.844-.08.57 1.78 2.22 3.078 4.18 3.113A8.98 8.98 0 012 19.54a12.67 12.67 0 006.88 2.017c8.26 0 12.78-6.84 12.78-12.77 0-.195-.004-.39-.013-.583A9.22 9.22 0 0024 4.59a8.98 8.98 0 01-2.54.697z" />
                       </svg>
                     </a>
                   </div>
                   <div className="col-span-1 text-center md:text-right">
                     <h3 className="text-xl font-bold text-green-200 mb-2">Contact Us</h3>
                     <p className="mb-1 text-sm"><strong className="text-green-100">Head Office:</strong> Naivasha Road, P.O. Box 75113 – 00200, Nairobi, Kenya.</p>
-                    <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong> Emily Mwaura</p>
-                    <p className="mb-1 text-sm"><strong className="text-green-100">Telephone:</strong> <a href="tel:+254727764987" className="text-green-300 hover:underline">+254 727 764987</a> / <a href="tel:+254721474392" className="text-green-300 hover:underline">+254 721 474392</a></p>
-                    <p className="mb-1 text-sm"><strong className="text-green-100">Email:</strong> <a href="mailto:ecogreen.l.c@gmail.com" className="text-green-300 hover:underline">ecogreen.l.c@gmail.com</a></p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong>Antony Nduhiu</p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Telephone:</strong> <a href="tel:+254746887291" className="text-green-300 hover:underline">+254 746 887291</a> / <a href="tel:+254721474392" className="text-green-300 hover:underline">+254 722 117264</a></p>
+                    <p className="mb-1 text-sm"><strong className="text-green-100">Email:</strong> <a href="mailto:info@ecogreencontractors.solutions" className="text-green-300 hover:underline">info@ecogreencontractors.solutions</a></p>
                   </div>
                 </div>
               </footer>
