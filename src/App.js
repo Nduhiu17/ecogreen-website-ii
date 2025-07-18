@@ -47,6 +47,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import artificialWaterfall1 from './images/portfolio/artificial-waterfall/artificial-water-fall1.jpg';
 import artificialWaterfall2 from './images/portfolio/artificial-waterfall/artificial-waterfall2.jpg';
 import swimmingPoolConstruction from './images/portfolio/artificial-waterfall/swimming-pool-construction.jpg';
+// import logo
+import logo from './images/logo.png';
 
 // Privacy Policy Page Component
 const PrivacyPolicyPage = () => {
@@ -79,7 +81,12 @@ const App = () => {
               {/* Navigation Bar */}
               <nav className="fixed top-0 left-0 right-0 z-50 bg-green-800 bg-opacity-90 shadow-lg py-4">
                 <div className="container mx-auto px-4 flex justify-between items-center">
-                  <a href="#" className="text-2xl font-bold text-white tracking-wide">ECOGREEN</a>
+                  <div className="flex items-center">
+                    
+                    <img src={logo} alt="ECOGREEN Logo" className="h-10" />
+                  <a href="#" className="text-MD font-bold text-white tracking-wide">ECOGREEN LANDSCAPERS</a>
+
+                  </div>
                   <div className="hidden md:flex space-x-6">
                     <NavLink href="#home">Home</NavLink>
                     <NavLink href="#about">About Us</NavLink>
