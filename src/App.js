@@ -83,7 +83,7 @@ const App = () => {
                 <div className="container mx-auto px-4 flex justify-between items-center">
                   <div className="flex items-center">
                     <img src={logo} alt="ECOGREEN Logo" className="h-10" />
-                    <a href="#" className="text-base sm:text-lg md:text-lg lg:text-xl font-bold text-white tracking-wide">ECOGREEN LANDSCAPERS</a>
+                    <a href="#" className="text-base sm:text-xl md:text-xl lg:text-xl font-bold text-white tracking-wide">ECOGREEN LANDSCAPERS</a>
                   </div>
                   <div className="hidden md:flex space-x-6">
                     <NavLink href="#home">Home</NavLink>
