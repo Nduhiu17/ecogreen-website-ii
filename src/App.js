@@ -111,7 +111,7 @@ const App = () => {
                 href="https://wa.me/254746887291"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-6 right-6 z-50 p-3 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-75"
+                className="fixed bottom-20 sm:bottom-6 right-6 z-50 p-3 bg-green-500 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-opacity-75"
                 title="Chat with us on WhatsApp"
                 style={{ boxShadow: '0 4px 16px rgba(16, 185, 129, 0.25)' }}
               >
