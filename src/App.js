@@ -23,7 +23,7 @@ const cabroImagesAll = importAll(require.context('./images/portfolio/cabro-layin
 const artificialWaterfallImagesAll = importAll(require.context('./images/portfolio/artificial-waterfall', false, /\.(jpg|png|svg)$/));
 
 
-const TRACKING_ID = process.env.TRACKING_ID;
+const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
 if (TRACKING_ID) {
   ReactGA.initialize(TRACKING_ID);
 } else {
@@ -673,7 +673,7 @@ const Portfolio = () => {
       let chatHistory = [];
       chatHistory.push({ role: "user", parts: [{ text: prompt }] });
       const payload = { contents: chatHistory };
-      const apiKey = process.env.GEMINI_API_KEY; // get your API key from environment variables
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY; // get your API key from environment variables
       console.log("Using API Key:", apiKey); // Debugging line to check if API key is being used
       
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
