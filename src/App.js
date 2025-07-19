@@ -60,6 +60,26 @@ const App = () => {
   return (
     <>
       <Helmet>
+        {/* Custom Scrollbar Styles */}
+        <style>{`
+          /* For Chrome, Edge, and Safari */
+          ::-webkit-scrollbar {
+            width: 8px !important;
+            background: #e6f4ea !important;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: #059669 !important;
+            border-radius: 8px !important;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background: #047857 !important;
+          }
+          /* For Firefox */
+          html {
+            scrollbar-width: thin !important;
+            scrollbar-color: #059669 #e6f4ea !important;
+          }
+        `}</style>
         <title>Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company</title>
         <meta name="description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya. Contact us for residential and commercial landscaping solutions." />
         <link rel="canonical" href="https://ecogreencontractors.solutions/" />
