@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
@@ -57,12 +58,273 @@ const PrivacyPolicyPage = () => {
 // Main App Component
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/user/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/" element={
-          <>
-            <div className="font-sans antialiased text-gray-800 bg-white">
+    <>
+      <Helmet>
+        <title>Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company</title>
+        <meta name="description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya. Contact us for residential and commercial landscaping solutions." />
+        <link rel="canonical" href="https://ecogreencontractors.solutions/" />
+        <meta property="og:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company" />
+        <meta property="og:description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ecogreencontractors.solutions/" />
+        <meta property="og:image" content="https://ecogreencontractors.solutions/logo192.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company" />
+        <meta name="twitter:description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya." />
+        <meta name="twitter:image" content="https://ecogreencontractors.solutions/logo192.png" />
+        <meta name="robots" content="index, follow" />
+        <html lang="en" />
+        {/* Structured Data: Organization, Website, LocalBusiness */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Ecogreen Landscapers & Contractors",
+            "url": "https://ecogreencontractors.solutions/",
+            "logo": "https://ecogreencontractors.solutions/logo192.png",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=61578337620398",
+              "https://x.com/9Ecogreen"
+            ],
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "telephone": "+254746887291",
+              "contactType": "customer service",
+              "areaServed": "KE",
+              "availableLanguage": ["English", "Swahili"]
+            }]
+          }
+        `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers and Contractors",
+            "image": "https://ecogreencontractors.solutions/logo.png",
+            "@id": "https://ecogreencontractors.solutions/",
+            "url": "https://ecogreencontractors.solutions/",
+            "telephone": "+254746887291",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Naivasha Road, P.O. Box 75113 , 00200",
+              "addressLocality": "Nairobi",
+              "addressCountry": "KE"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -1.3081,
+              "longitude": 36.7820
+            },
+            "openingHoursSpecification": [{
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "08:00",
+              "closes": "18:00"
+            }],
+            "priceRange": "KES"
+          }
+        `}</script>
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Ecogreen Landscapers and Contractors",
+            "url": "https://ecogreencontractors.solutions/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://ecogreencontractors.solutions/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        `}</script>
+      {/* About Section: Person/Founder Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Antony Nduhiu",
+          "jobTitle": "Founder & Director",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Ecogreen Landscapers and Contractors"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Naivasha Road, P.O. Box 75113 , 00200",
+            "addressLocality": "Nairobi",
+            "addressCountry": "KE"
+          },
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61578337620398"
+          ]
+        }
+      `}</script>
+      {/* Services Section: Service Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "serviceType": "Landscaping, Garden Maintenance, Tree Care, Walkway Construction, Cabro Laying, Water Features & Pools",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers and Contractors",
+            "url": "https://ecogreencontractors.solutions/"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "Kenya"
+          },
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://ecogreencontractors.solutions/"
+          }
+        }
+      `}</script>
+      {/* Portfolio Section: ItemList Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Portfolio Projects",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Landscaping & Design"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Garden Maintenance"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tree Care & Maintenance"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Walkway & Road Construction"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Cabro Laying"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Water Features & Pools"
+            }
+          ]
+        }
+      `}</script>
+      {/* Individual Service Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Expert Landscaping & Design",
+          "description": "Comprehensive garden design, soft and hard landscaping, plant selection, lawn and pathway laying, wall construction, and irrigation system installation.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Dedicated Garden Maintenance",
+          "description": "Regular garden upkeep, disease control, mowing, weeding, hedge trimming, cleaning, and garden waste removal.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Professional Tree Care & Maintenance",
+          "description": "Tree trimming, health care, disease and insect treatment, safe tree cutting, pruning, inspection, planting, and debris removal.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Durable Walkway & Road Construction",
+          "description": "Construction of garden walkways, access roads, tarmac connecting roads, and paved driveways for all conditions.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Precise Excavation & Cabro Laying",
+          "description": "Ground preparation, soil removal, compaction, hardcore laying, aggregate, and paving block installation for roads and car parks.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Stunning Water Features & Pools",
+          "description": "Design and construction of water fountains, swimming pools, koi ponds, and multi-tiered fountains for residential and commercial properties.",
+          "provider": {
+            "@type": "LocalBusiness",
+            "name": "Ecogreen Landscapers & Contractors"
+          },
+          "areaServed": "Kenya"
+        }
+      `}</script>
+      {/* Contact Section: ContactPoint Structured Data */}
+      <script type="application/ld+json">{`
+        {
+          "@context": "https://schema.org",
+          "@type": "ContactPoint",
+          "telephone": "+254746887291",
+          "contactType": "customer service",
+          "areaServed": "KE",
+          "availableLanguage": ["English", "Swahili"],
+          "email": "info@ecogreencontractors.solutions"
+        }
+      `}</script>
+      </Helmet>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/user/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/" element={
+            <>
+              <div className="font-sans antialiased text-gray-800 bg-white">
               {/* Navigation Bar */}
               <nav className="fixed top-0 left-0 right-0 z-50 bg-green-800 bg-opacity-90 shadow-lg py-4">
                 <div className="container mx-auto px-4 flex justify-between items-center">
@@ -155,10 +417,11 @@ const App = () => {
                 </div>
               </footer>
             </div>
-          </>
-        } />
-      </Routes>
-    </BrowserRouter>
+            </>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
