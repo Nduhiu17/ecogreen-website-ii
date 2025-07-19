@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ReactGA from 'react-ga4';
 
 // import logo
 import logo from './images/logo.png';
@@ -20,6 +21,10 @@ const treeImagesAll = importAll(require.context('./images/portfolio/tree-care', 
 const walkwayImagesAll = importAll(require.context('./images/portfolio/walk-way', false, /\.(jpg|png|svg)$/));
 const cabroImagesAll = importAll(require.context('./images/portfolio/cabro-laying', false, /\.(jpg|png|svg)$/));
 const artificialWaterfallImagesAll = importAll(require.context('./images/portfolio/artificial-waterfall', false, /\.(jpg|png|svg)$/));
+
+const TRACKING_ID = process.env.TRACKING_ID;
+
+ReactGA.initialize(TRACKING_ID);
 
 // Helper to get image by filename
 const getImg = (imgMap, filename) => imgMap[filename];
