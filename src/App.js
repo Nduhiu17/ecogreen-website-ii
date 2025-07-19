@@ -1,54 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
-// import all images from images/heroes folder
-import hero1 from './images/heroes/heroes1.jpg';
-import hero2 from './images/heroes/heroes2.jpg';
-import hero3 from './images/heroes/heroes3.jpg';
-import hero4 from './images/heroes/heroes4.jpg';
-import hero5 from './images/heroes/heroes5.jpg';
-import hero6 from './images/heroes/heroes6.jpg';
-import hero7 from './images/heroes/heroes7.jpg';
-import hero8 from './images/heroes/heroes8.jpg';
-import hero9 from './images/heroes/heroes9.jpg';
-
-// import all about images from images/about folder
-import about1 from './images/about/about1.jpg';
-import about2 from './images/about/about2.jpg';
-import about3 from './images/about/about3.jpg';
-import about4 from './images/about/about4.jpg';
-import about5 from './images/about/about5.jpg';
-
-// import all images from portfolio/landscape folder
-import landc1 from './images/portfolio/landscape/landc1.jpg';
-import landc2 from './images/portfolio/landscape/landc2.jpg';
-import landc3 from './images/portfolio/landscape/landc3.jpg';
-
-// import all images from portfolio/garden-maintainance folder
-import garden1 from './images/portfolio/garden-maintainance/garden1.jpg';
-import garden2 from './images/portfolio/garden-maintainance/garden2.jpg';
-import garden3 from './images/portfolio/garden-maintainance/garden3.jpg';
-
-// import all images from portfolio/tree-care folder
-import tree1 from './images/portfolio/tree-care/tree-care.jpg';
-import tree2 from './images/portfolio/tree-care/tree-care2.jpg';
-import tree3 from './images/portfolio/tree-care/tree-care3.jpg';
-
-// import all images from portfolio/walk-way folder
-import walkway1 from './images/portfolio/walk-way/pathway1.jpg';
-import walkway2 from './images/portfolio/walk-way/pathway2.jpg';
-import walkway3 from './images/portfolio/walk-way/pathway3.jpg';
-
-// import all images from portfolio/cabro-laying folder
-import cabro1 from './images/portfolio/cabro-laying/cabro1.jpg';
-import cabro2 from './images/portfolio/cabro-laying/cabro2.jpg';
-import cabro3 from './images/portfolio/cabro-laying/cabro3.jpg';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import all images from portfolio/artificial-waterfall folder
-import artificialWaterfall1 from './images/portfolio/artificial-waterfall/artificial-water-fall1.jpg';
-import artificialWaterfall2 from './images/portfolio/artificial-waterfall/artificial-waterfall2.jpg';
-import swimmingPoolConstruction from './images/portfolio/artificial-waterfall/swimming-pool-construction.jpg';
 // import logo
 import logo from './images/logo.png';
+// import all images from images/heroes folder
+// Utility to import all images from a folder
+function importAll(r) {
+  let images = {};
+  r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+// Import all images from relevant folders
+const heroImagesAll = importAll(require.context('./images/heroes', false, /\.(jpg|png|svg)$/));
+const aboutImagesAll = importAll(require.context('./images/about', false, /\.(jpg|png|svg)$/));
+const landcImagesAll = importAll(require.context('./images/portfolio/landscape', false, /\.(jpg|png|svg)$/));
+const gardenImagesAll = importAll(require.context('./images/portfolio/garden-maintainance', false, /\.(jpg|png|svg)$/));
+const treeImagesAll = importAll(require.context('./images/portfolio/tree-care', false, /\.(jpg|png|svg)$/));
+const walkwayImagesAll = importAll(require.context('./images/portfolio/walk-way', false, /\.(jpg|png|svg)$/));
+const cabroImagesAll = importAll(require.context('./images/portfolio/cabro-laying', false, /\.(jpg|png|svg)$/));
+const artificialWaterfallImagesAll = importAll(require.context('./images/portfolio/artificial-waterfall', false, /\.(jpg|png|svg)$/));
+
+// Helper to get image by filename
+const getImg = (imgMap, filename) => imgMap[filename];
+
 
 // Privacy Policy Page Component
 const PrivacyPolicyPage = () => {
@@ -294,11 +269,11 @@ const ImageSlider = ({ images, title, heightClass = 'h-screen' }) => {
 // Hero Section
 const HeroSection = () => {
   const heroImages = [
-    { src: hero9, alt: 'Lush Green Landscape Design', caption: 'Transforming Outdoor Spaces', description: 'Expert landscaping services for residential and commercial properties, creating vibrant and inviting environments.' },
-    { src: hero2, alt: 'Stunning Garden Designs Showcase', caption: 'Crafting Your Dream Garden', description: 'Innovative designs that blend natural beauty with practical functionality and aesthetic appeal.' },
-    { src: hero3, alt: 'Sustainable Outdoor Solutions Example', caption: 'Eco-Friendly & Sustainable', description: 'Creating beautiful environments with a focus on ecological balance and long-term sustainability.' },
-    { src: hero4, alt: 'Elegant Water Features Installation', caption: 'Water Features & Serenity', description: 'Adding the soothing touch of custom-designed water fountains and tranquil ponds.' },
-    { src: hero1, alt: 'Durable Walkways and Paving', caption: 'Pathways to Perfection', description: 'Constructing robust and aesthetically pleasing walkways and roads for lasting appeal.' },
+    { src: getImg(heroImagesAll, 'heroes9.jpg'), alt: 'Lush Green Landscape Design', caption: 'Transforming Outdoor Spaces', description: 'Expert landscaping services for residential and commercial properties, creating vibrant and inviting environments.' },
+    { src: getImg(heroImagesAll, 'heroes2.jpg'), alt: 'Stunning Garden Designs Showcase', caption: 'Crafting Your Dream Garden', description: 'Innovative designs that blend natural beauty with practical functionality and aesthetic appeal.' },
+    { src: getImg(heroImagesAll, 'heroes3.jpg'), alt: 'Sustainable Outdoor Solutions Example', caption: 'Eco-Friendly & Sustainable', description: 'Creating beautiful environments with a focus on ecological balance and long-term sustainability.' },
+    { src: getImg(heroImagesAll, 'heroes4.jpg'), alt: 'Elegant Water Features Installation', caption: 'Water Features & Serenity', description: 'Adding the soothing touch of custom-designed water fountains and tranquil ponds.' },
+    { src: getImg(heroImagesAll, 'heroes1.jpg'), alt: 'Durable Walkways and Paving', caption: 'Pathways to Perfection', description: 'Constructing robust and aesthetically pleasing walkways and roads for lasting appeal.' },
   ];
 
   // Navbar height: py-4 (1rem top + 1rem bottom) + text height + padding, so about 64px (4rem) on mobile, more on desktop
@@ -320,11 +295,11 @@ const HeroSection = () => {
 // About Us Section
 const AboutUs = () => {
   const aboutImages = [
-    { src: about1, alt: 'Garden Steps and Rockery Project', caption: 'Our Expertise in Action', description: 'Showcasing our diverse landscaping projects from concept to completion.' },
-    { src: about2, alt: 'Creative Playground Design Example', caption: 'Innovative Outdoor Solutions', description: 'From aesthetic dams to unique and safe play areas for all ages.' },
-    { src: about3, alt: 'Lush Greenery Pathway Design', caption: 'Over 30 Years of Excellence', description: 'A legacy of transforming landscapes across Kenya with unparalleled dedication.' },
-    { src: about4, alt: 'Residential Garden Transformation', caption: 'Your Vision, Our Expertise', description: 'Bringing residential garden dreams to vibrant reality with bespoke designs.' },
-    { src: about5, alt: 'Commercial Property Landscaping', caption: 'Enhancing Business Appeal', description: 'Creating inviting and professional outdoor spaces for commercial establishments.' },
+    { src: getImg(aboutImagesAll, 'about1.jpg'), alt: 'Garden Steps and Rockery Project', caption: 'Our Expertise in Action', description: 'Showcasing our diverse landscaping projects from concept to completion.' },
+    { src: getImg(aboutImagesAll, 'about2.jpg'), alt: 'Creative Playground Design Example', caption: 'Innovative Outdoor Solutions', description: 'From aesthetic dams to unique and safe play areas for all ages.' },
+    { src: getImg(aboutImagesAll, 'about3.jpg'), alt: 'Lush Greenery Pathway Design', caption: 'Over 30 Years of Excellence', description: 'A legacy of transforming landscapes across Kenya with unparalleled dedication.' },
+    { src: getImg(aboutImagesAll, 'about4.jpg'), alt: 'Residential Garden Transformation', caption: 'Your Vision, Our Expertise', description: 'Bringing residential garden dreams to vibrant reality with bespoke designs.' },
+    { src: getImg(aboutImagesAll, 'about5.jpg'), alt: 'Commercial Property Landscaping', caption: 'Enhancing Business Appeal', description: 'Creating inviting and professional outdoor spaces for commercial establishments.' },
   ];
 
   return (
@@ -374,9 +349,9 @@ const Services = () => {
           title="Expert Landscaping & Design"
           description="From initial concept to breathtaking completion, Ecogreen transforms your outdoor space into a personal paradise. Our services encompass comprehensive garden design, meticulous soft and hard landscaping, thoughtful plant selection, precise lawn and pathway laying, robust wall construction, and efficient irrigation system installation. We ensure a seamless process, delivering exceptional value and a garden that not only brings joy but also complements your home's architecture and enhances property value. Our designs are tailored to your lifestyle and the unique characteristics of your property, creating harmonious and sustainable environments."
           images={[
-            { src: landc1, alt: 'Residential Landscaping Project', caption: 'Creating Serene Home Gardens', description: 'Tailored designs for every lifestyle, enhancing curb appeal and outdoor living.' },
-            { src: landc2, alt: 'Commercial Landscape Design Example', caption: 'Enhancing Business Environments', description: 'Professional landscaping for corporate spaces, promoting a welcoming and productive atmosphere.' },
-            { src: landc3, alt: 'Garden Design and Installation', caption: 'Bespoke Garden Creations', description: 'From concept to bloom, we design and install gardens that thrive.' },
+            { src: getImg(landcImagesAll, 'landc1.jpg'), alt: 'Residential Landscaping Project', caption: 'Creating Serene Home Gardens', description: 'Tailored designs for every lifestyle, enhancing curb appeal and outdoor living.' },
+            { src: getImg(landcImagesAll, 'landc2.jpg'), alt: 'Commercial Landscape Design Example', caption: 'Enhancing Business Environments', description: 'Professional landscaping for corporate spaces, promoting a welcoming and productive atmosphere.' },
+            { src: getImg(landcImagesAll, 'landc3.jpg'), alt: 'Garden Design and Installation', caption: 'Bespoke Garden Creations', description: 'From concept to bloom, we design and install gardens that thrive.' },
           ]}
           reverse={false}
         />
@@ -386,9 +361,9 @@ const Services = () => {
           title="Dedicated Garden Maintenance"
           description="A vibrant garden requires continuous care and attention. Ecogreen offers bespoke garden maintenance services to ensure your outdoor sanctuary remains pristine year-round. Whether we designed your garden or not, our team provides regular upkeep, including proactive disease control for plants and lawns, precise mowing and weeding, expert hedge trimming for perfect shaping, thorough cleaning, and efficient removal of all garden waste. We offer flexible contracts – weekly, monthly, or on a less regular basis – tailored to your garden's specific needs, ensuring its long-term health and beauty."
           images={[
-            { src: garden1, alt: 'Lawn Mowing Services Example', caption: 'Keeping Your Lawn Immaculate', description: 'Regular mowing and weeding for a perfect, healthy lawn all season long.' },
-            { src: garden2, alt: 'Hedge Trimming Experts at Work', caption: 'Shaping Hedges to Perfection', description: 'Skilled trimming for healthy and beautifully sculpted hedges and shrubs.' },
-            { src: garden3, alt: 'Garden Waste Removal Service', caption: 'Clean & Tidy Gardens', description: 'Efficient removal of garden waste, leaving your space spotless and inviting.' },
+            { src: getImg(gardenImagesAll, 'garden1.jpg'), alt: 'Lawn Mowing Services Example', caption: 'Keeping Your Lawn Immaculate', description: 'Regular mowing and weeding for a perfect, healthy lawn all season long.' },
+            { src: getImg(gardenImagesAll, 'garden2.jpg'), alt: 'Hedge Trimming Experts at Work', caption: 'Shaping Hedges to Perfection', description: 'Skilled trimming for healthy and beautifully sculpted hedges and shrubs.' },
+            { src: getImg(gardenImagesAll, 'garden3.jpg'), alt: 'Garden Waste Removal Service', caption: 'Clean & Tidy Gardens', description: 'Efficient removal of garden waste, leaving your space spotless and inviting.' },
           ]}
           reverse={true}
         />
@@ -398,9 +373,9 @@ const Services = () => {
           title="Professional Tree Care & Maintenance"
           description="Ecogreen provides comprehensive tree maintenance services, including strategic trimming, overall health care, and preventative treatments against diseases and insects, ensuring the vitality and longevity of your landscape. We also offer safe and efficient tree cutting for old or dangerously overhanging trees that pose a risk to structures or surroundings, ensuring safety and preventing potential damage. Our expert pruning services meticulously remove defective, dead, rotten, flimsy, and non-productive tissue, promoting structural integrity, vigorous growth, and the aesthetic appeal of your trees. Our tasks include thorough tree inspection and diagnosis, scientific naming and tagging for inventory, responsible planting and cutting down trees, efficient digging out of offcuts, precise pruning, supporting trees and bushes for stability, targeted disease control, and complete removal of debris from your compounds."
           images={[
-            { src: tree1, alt: 'Tree Pruning Service Demonstration', caption: 'Ensuring Tree Health & Safety', description: 'Expert pruning and maintenance for all tree types, promoting growth and preventing hazards.' },
-            { src: tree2, alt: 'Safe Tree Removal Operation', caption: 'Specialized Tree Felling', description: 'Safe and efficient removal of hazardous or unwanted trees with minimal disruption.' },
-            { src: tree3, alt: 'Tree Planting and Support', caption: 'Nurturing New Growth', description: 'Professional tree planting and ongoing support for healthy establishment.' },
+            { src: getImg(treeImagesAll, 'tree-care.jpg'), alt: 'Tree Pruning Service Demonstration', caption: 'Ensuring Tree Health & Safety', description: 'Expert pruning and maintenance for all tree types, promoting growth and preventing hazards.' },
+            { src: getImg(treeImagesAll, 'tree-care2.jpg'), alt: 'Safe Tree Removal Operation', caption: 'Specialized Tree Felling', description: 'Safe and efficient removal of hazardous or unwanted trees with minimal disruption.' },
+            { src: getImg(treeImagesAll, 'tree-care3.jpg'), alt: 'Tree Planting and Support', caption: 'Nurturing New Growth', description: 'Professional tree planting and ongoing support for healthy establishment.' },
           ]}
           reverse={false}
         />
@@ -410,9 +385,9 @@ const Services = () => {
           title="Durable Walkway & Road Construction"
           description="Ecogreen specializes in constructing robust and aesthetically pleasing walkways and roads that enhance both functionality and curb appeal. From simple garden mazera walkways that promote healthy grass growth and provide clean, non-slip paths, especially during rainy seasons, to the provision of external access roads and all-weather tarmac connecting roads, we deliver durable and long-lasting solutions. Our expertise ensures smooth, safe, and visually appealing surfaces for any property, significantly enhancing accessibility and overall landscape value."
           images={[
-            { src: walkway1, alt: 'Mazera Walkways+Construction', caption: 'Elegant Garden Paths', description: 'Beautiful and functional mazera walkways for natural charm and durability.' },
-            { src: walkway2, alt: 'All-Weather+Roads+Project', caption: 'Robust Road Infrastructure', description: 'Constructing durable roads for all conditions, ensuring smooth and safe access.' },
-            { src: walkway3, alt: 'Paved+Driveway+Installation', caption: 'Stylish Driveway Solutions', description: 'Custom-designed paved driveways that combine aesthetics with resilience.' },
+            { src: getImg(walkwayImagesAll, 'pathway1.jpg'), alt: 'Mazera Walkways+Construction', caption: 'Elegant Garden Paths', description: 'Beautiful and functional mazera walkways for natural charm and durability.' },
+            { src: getImg(walkwayImagesAll, 'pathway2.jpg'), alt: 'All-Weather+Roads+Project', caption: 'Robust Road Infrastructure', description: 'Constructing durable roads for all conditions, ensuring smooth and safe access.' },
+            { src: getImg(walkwayImagesAll, 'pathway3.jpg'), alt: 'Paved+Driveway+Installation', caption: 'Stylish Driveway Solutions', description: 'Custom-designed paved driveways that combine aesthetics with resilience.' },
           ]}
           reverse={true}
         />
@@ -422,9 +397,9 @@ const Services = () => {
           title="Precise Excavation & Cabro Laying"
           description="Cabro laying is a cornerstone of our services, demanding meticulous attention to detail from the initial ground preparation to the flawless final finish. We meticulously remove problematic soil types, such as black cotton soil, until a stable and firm ground is achieved. This is followed by precise backfilling with murram and thorough compaction using heavy-duty roller compactors. The final 300mm depth is filled with hand-packed hardcore, which is also expertly roller-compacted for maximum stability. Fine aggregate is then laid on top before the paving blocks are expertly arranged and securely held together on the edges by robust concrete kerbs. Our precise approach guarantees smooth, durable, and aesthetically pleasing cabro surfaces perfect for roads, car parks, and expansive outdoor areas, built to withstand heavy traffic and environmental elements."
           images={[
-            { src: cabro3, alt: 'Cabro Road Construction Site', caption: 'Durable Cabro Roads', description: 'Expert cabro laying for long-lasting, high-traffic roads and pathways.' },
-            { src: cabro1, alt: 'Cabro Car Park Installation Process', caption: 'Functional Car Parks', description: 'High-quality cabro solutions for robust and aesthetically pleasing car parks.' },
-            { src: cabro2, alt: 'Ground Preparation for Paving', caption: 'Meticulous Groundwork', description: 'Thorough excavation and compaction for a solid foundation.' },
+            { src: getImg(cabroImagesAll, 'cabro3.jpg'), alt: 'Cabro Road Construction Site', caption: 'Durable Cabro Roads', description: 'Expert cabro laying for long-lasting, high-traffic roads and pathways.' },
+            { src: getImg(cabroImagesAll, 'cabro1.jpg'), alt: 'Cabro Car Park Installation Process', caption: 'Functional Car Parks', description: 'High-quality cabro solutions for robust and aesthetically pleasing car parks.' },
+            { src: getImg(cabroImagesAll, 'cabro2.jpg'), alt: 'Ground Preparation for Paving', caption: 'Meticulous Groundwork', description: 'Thorough excavation and compaction for a solid foundation.' },
           ]}
           reverse={false}
         />
@@ -434,9 +409,9 @@ const Services = () => {
           title="Stunning Water Features & Pools"
           description="Enhance the beauty and tranquility of your property with Ecogreen's expertise in designing and constructing captivating water fountains and luxurious swimming pools. We create bespoke water features that serve as dynamic focal points, adding elegance, a soothing ambiance, and a touch of natural artistry to any landscape. Our swimming pools are built to the highest standards of craftsmanship and safety, offering a perfect blend of relaxation, recreation, and aesthetic appeal, meticulously tailored to your specific vision and property layout. From serene koi ponds to elaborate multi-tiered fountains, we bring water to life in your garden."
           images={[
-            { src: artificialWaterfall1, alt: 'Elegant Water Fountains Design', caption: 'Artistic Water Features', description: 'Bringing serenity and dynamic beauty to your garden space.' },
-            { src: swimmingPoolConstruction, alt: 'Luxurious Swimming Pool Construction', caption: 'Custom Pool Construction', description: 'Creating your personal oasis with bespoke designs and premium finishes.' },
-            { src: artificialWaterfall2, alt: 'Tranquil Pond and Waterfall', caption: 'Harmonious Water Gardens', description: 'Integrating natural ponds and waterfalls for a calming effect.' },
+            { src: getImg(artificialWaterfallImagesAll, 'artificial-water-fall1.jpg'), alt: 'Elegant Water Fountains Design', caption: 'Artistic Water Features', description: 'Bringing serenity and dynamic beauty to your garden space.' },
+            { src: getImg(artificialWaterfallImagesAll, 'swimming-pool-construction.jpg'), alt: 'Luxurious Swimming Pool Construction', caption: 'Custom Pool Construction', description: 'Creating your personal oasis with bespoke designs and premium finishes.' },
+            { src: getImg(artificialWaterfallImagesAll, 'artificial-waterfall2.jpg'), alt: 'Tranquil Pond and Waterfall', caption: 'Harmonious Water Gardens', description: 'Integrating natural ponds and waterfalls for a calming effect.' },
           ]}
           reverse={true}
         />
@@ -468,9 +443,9 @@ const Portfolio = () => {
       originalDescription: "For Coopers K Brand, we undertook a comprehensive landscaping project at their new Tatu City headquarters. This involved meticulous design, implementation, and ongoing maintenance of expansive grounds, including lush grassing, the creation of aesthetic hills, vibrant flower beds, intricate rock gardens, and perfectly sculpted hedges. Our work transformed their corporate environment into a welcoming and inspiring space, valued around KES 1,500,000 in 2019, reflecting our commitment to large-scale corporate beautification.",
       description: "For Coopers K Brand, we undertook a comprehensive landscaping project at their new Tatu City headquarters. This involved meticulous design, implementation, and ongoing maintenance of expansive grounds, including lush grassing, the creation of aesthetic hills, vibrant flower beds, intricate rock gardens, and perfectly sculpted hedges. Our work transformed their corporate environment into a welcoming and inspiring space, valued around KES 1,500,000 in 2019, reflecting our commitment to large-scale corporate beautification.",
       images: [
-        { src: 'https://placehold.co/800x600/4CAF50/FFFFFF?text=Coopers+K+Brand+HQ+1', alt: 'Coopers K Brand Headquarters Landscape 1', caption: 'Main Entrance Landscaping', description: 'A welcoming and vibrant entrance designed for corporate appeal.' },
-        { src: 'https://placehold.co/800x600/4CAF50/FFFFFF?text=Coopers+K+Brand+HQ+2', alt: 'Coopers K Brand Headquarters Landscape 2', caption: 'Green Spaces & Pathways', description: 'Expansive green lawns with accessible, well-defined pathways.' },
-        { src: 'https://placehold.co/800x600/4CAF50/FFFFFF?text=Coopers+K+Brand+HQ+3', alt: 'Coopers K Brand Headquarters Landscape 3', caption: 'Aesthetic Hills & Rock Gardens', description: 'Unique natural features integrated into the corporate landscape.' },
+        { src: getImg(landcImagesAll, 'landc1.jpg'), alt: 'Coopers K Brand Headquarters Landscape 1', caption: 'Main Entrance Landscaping', description: 'A welcoming and vibrant entrance designed for corporate appeal.' },
+        { src: getImg(landcImagesAll, 'landc2.jpg'), alt: 'Coopers K Brand Headquarters Landscape 2', caption: 'Green Spaces & Pathways', description: 'Expansive green lawns with accessible, well-defined pathways.' },
+        { src: getImg(landcImagesAll, 'landc3.jpg'), alt: 'Coopers K Brand Headquarters Landscape 3', caption: 'Aesthetic Hills & Rock Gardens', description: 'Unique natural features integrated into the corporate landscape.' },
       ],
     },
     {
@@ -478,9 +453,9 @@ const Portfolio = () => {
       originalDescription: "Our engagement at Tatu City involved extensive landscaping, strategic hedge and tree planting, and significant aesthetic enhancements, including the development of unique rock gardens. We provided continuous maintenance from 2018 to 2019, ensuring the sustained beauty and ecological balance of the urban development. This project, with a contract value around KES 1,000,000, showcased our ability to contribute to large-scale urban greening initiatives.",
       description: "Our engagement at Tatu City involved extensive landscaping, strategic hedge and tree planting, and significant aesthetic enhancements, including the development of unique rock gardens. We provided continuous maintenance from 2018 to 2019, ensuring the sustained beauty and ecological balance of the urban development. This project, with a contract value around KES 1,000,000, showcased our ability to contribute to large-scale urban greening initiatives.",
       images: [
-        { src: 'https://placehold.co/800x600/8BC34A/FFFFFF?text=Tatu+City+Development+1', alt: 'Tatu City Development Landscape 1', caption: 'Urban Green Corridor', description: 'Creating green spaces within a bustling urban development.' },
-        { src: 'https://placehold.co/800x600/8BC34A/FFFFFF?text=Tatu+City+Development+2', alt: 'Tatu City Development Landscape 2', caption: 'Hedge & Tree Planting', description: 'Strategic planting for privacy, shade, and aesthetic appeal.' },
-        { src: 'https://placehold.co/800x600/8BC34A/FFFFFF?text=Tatu+City+Development+3', alt: 'Tatu City Development Landscape 3', caption: 'Rock Garden Features', description: 'Artistic rock formations enhancing the natural beauty of the area.' },
+        { src: getImg(gardenImagesAll, 'garden1.jpg'), alt: 'Tatu City Development Landscape 1', caption: 'Urban Green Corridor', description: 'Creating green spaces within a bustling urban development.' },
+        { src: getImg(gardenImagesAll, 'garden2.jpg'), alt: 'Tatu City Development Landscape 2', caption: 'Hedge & Tree Planting', description: 'Strategic planting for privacy, shade, and aesthetic appeal.' },
+        { src: getImg(gardenImagesAll, 'garden3.jpg'), alt: 'Tatu City Development Landscape 3', caption: 'Rock Garden Features', description: 'Artistic rock formations enhancing the natural beauty of the area.' },
       ],
     },
     {
@@ -488,9 +463,9 @@ const Portfolio = () => {
       originalDescription: "Ecogreen Landscapers & Contractors has proudly served the Canadian Embassy for over seven years, undertaking various landscaping works. A key project involved designing and landscaping the front entrance area within the chancery. This intricate work included precise leveling, vibrant flower installations, and the strategic placement of aesthetic rocks to create a grand and inviting entrance. We also had the honor of planting the memorial acacia tree, symbolizing lasting beauty and commitment.",
       description: "Ecogreen Landscapers & Contractors has proudly served the Canadian Embassy for over seven years, undertaking various landscaping works. A key project involved designing and landscaping the front entrance area within the chancery. This intricate work included precise leveling, vibrant flower installations, and the strategic placement of aesthetic rocks to create a grand and inviting entrance. We also had the honor of planting the memorial acacia tree, symbolizing lasting beauty and commitment.",
       images: [
-        { src: 'https://placehold.co/800x600/689F38/FFFFFF?text=Canadian+Embassy+1', alt: 'Canadian Embassy Landscape 1', caption: 'Grand Entrance Design', description: 'Elegant landscaping at the embassy entrance for a distinguished look.' },
-        { src: 'https://placehold.co/800x600/689F38/FFFFFF?text=Canadian+Embassy+2', alt: 'Canadian Embassy Landscape 2', caption: 'Vibrant Floral Displays', description: 'Colorful flowerbeds adding beauty and charm to the chancery.' },
-        { src: 'https://placehold.co/800x600/689F38/FFFFFF?text=Canadian+Embassy+3', alt: 'Canadian Embassy Landscape 3', caption: 'Memorial Tree Planting', description: 'A significant acacia tree planted with care and precision.' },
+        { src: getImg(treeImagesAll, 'tree-care.jpg'), alt: 'Canadian Embassy Landscape 1', caption: 'Grand Entrance Design', description: 'Elegant landscaping at the embassy entrance for a distinguished look.' },
+        { src: getImg(treeImagesAll, 'tree-care2.jpg'), alt: 'Canadian Embassy Landscape 2', caption: 'Vibrant Floral Displays', description: 'Colorful flowerbeds adding beauty and charm to the chancery.' },
+        { src: getImg(treeImagesAll, 'tree-care3.jpg'), alt: 'Canadian Embassy Landscape 3', caption: 'Memorial Tree Planting', description: 'A significant acacia tree planted with care and precision.' },
       ],
     },
     {
@@ -498,9 +473,9 @@ const Portfolio = () => {
       originalDescription: "For the British High Commission, our work encompassed comprehensive landscaping, ongoing maintenance, and expert pruning of trees. A significant part of the project involved the rehabilitation of grounds that were previously heavily overgrown with dense bushes, transforming them into manicured, accessible, and aesthetically pleasing outdoor spaces that reflect the prestige of the diplomatic mission.",
       description: "For the British High Commission, our work encompassed comprehensive landscaping, ongoing maintenance, and expert pruning of trees. A significant part of the project involved the rehabilitation of grounds that were previously heavily overgrown with dense bushes, transforming them into manicured, accessible, and aesthetically pleasing outdoor spaces that reflect the prestige of the diplomatic mission.",
       images: [
-        { src: 'https://placehold.co/800x600/7CFC00/FFFFFF?text=British+High+Commission+1', alt: 'British High Commission Grounds 1', caption: 'Grounds Rehabilitation', description: 'Transforming overgrown areas into pristine diplomatic landscapes.' },
-        { src: 'https://placehold.co/800x600/7CFC00/FFFFFF?text=British+High+Commission+2', alt: 'British High Commission Grounds 2', caption: 'Expert Tree Pruning', description: 'Maintaining tree health and aesthetics for a refined appearance.' },
-        { src: 'https://placehold.co/800x600/7CFC00/FFFFFF?text=British+High+Commission+3', alt: 'British High Commission Grounds 3', caption: 'Manicured Lawns', description: 'Immaculately maintained lawns reflecting the prestige of the site.' },
+        { src: getImg(walkwayImagesAll, 'pathway1.jpg'), alt: 'British High Commission Grounds 1', caption: 'Grounds Rehabilitation', description: 'Transforming overgrown areas into pristine diplomatic landscapes.' },
+        { src: getImg(walkwayImagesAll, 'pathway2.jpg'), alt: 'British High Commission Grounds 2', caption: 'Expert Tree Pruning', description: 'Maintaining tree health and aesthetics for a refined appearance.' },
+        { src: getImg(walkwayImagesAll, 'pathway3.jpg'), alt: 'British High Commission Grounds 3', caption: 'Manicured Lawns', description: 'Immaculately maintained lawns reflecting the prestige of the site.' },
       ],
     },
     {
@@ -660,22 +635,22 @@ const Portfolio = () => {
   const [error, setError] = useState(null);
 
   const photoGalleryImages = [
-    { src: 'https://placehold.co/800x600/4CAF50/FFFFFF?text=Garden+with+Stone+Steps+Overview', alt: 'Garden with Stone Steps Overview', caption: 'Serene Garden Retreats', description: 'Beautifully crafted stone steps amidst lush greenery, inviting tranquility.' },
-    { src: 'https://placehold.co/800x600/8BC34A/FFFFFF?text=Manicured+Lawn+and+Flowerbed+Detail', alt: 'Manicured Lawn and Flowerbed Detail', caption: 'Vibrant Floral Displays', description: 'A perfectly manicured lawn complemented by colorful and diverse flowerbeds.' },
-    { src: 'https://placehold.co/800x600/689F38/FFFFFF?text=Lush+Tropical+Garden+Path+View', alt: 'Lush Tropical Garden Path View', caption: 'Tropical Oasis Pathways', description: 'Inviting pathways winding through exotic foliage, creating a sense of discovery.' },
-    { src: 'https://placehold.co/800x600/7CFC00/FFFFFF?text=Small+Garden+Waterfall+Feature', alt: 'Small Garden Waterfall Feature', caption: 'Tranquil Water Features', description: 'The soothing sound of a cascading garden waterfall adding peace to your space.' },
-    { src: 'https://placehold.co/800x600/ADFF2F/FFFFFF?text=Stone+Walkway+with+Greenery+Surround', alt: 'Stone Walkway with Greenery Surround', caption: 'Rustic Charm Walkways', description: 'Natural stone walkways blending seamlessly with the landscape, durable and beautiful.' },
-    { src: 'https://placehold.co/800x600/2E8B57/FFFFFF?text=Ongoing+Site+Excavation+Work', alt: 'Ongoing Site Excavation Work', caption: 'Groundwork in Progress', description: 'Preparing the foundation for new landscape transformations with precision and care.' },
-    { src: 'https://placehold.co/800x600/3CB371/FFFFFF?text=New+Landscape+Development+Phase', alt: 'New Landscape Development Phase', caption: 'Developing Future Green Spaces', description: 'Early stages of a large-scale landscape project, shaping the environment of tomorrow.' },
-    { src: 'https://placehold.co/800x600/8FBC8F/FFFFFF?text=Stream+and+Rock+Garden+Integration', alt: 'Stream and Rock Garden Integration', caption: 'Natural Stream Integration', description: 'Harmonious blend of water features and rockery, creating a natural ecosystem.' },
-    { src: 'https://placehold.co/800x600/90EE90/FFFFFF?text=Colorful+Tire+Play+Area+Design', alt: 'Colorful Tire Play Area Design', caption: 'Creative Play Solutions', description: 'Fun and safe play areas designed with recycled materials for sustainable enjoyment.' },
-    { src: 'https://placehold.co/800x600/32CD32/FFFFFF?text=Brick+Paved+Pathway+Artistry', alt: 'Brick Paved Pathway Artistry', caption: 'Artistic Paved Paths', description: 'Intricate brick paving adding character and durability to your pathways.' },
-    { src: 'https://placehold.co/800x600/228B22/FFFFFF?text=Secluded+Garden+Path+Exploration', alt: 'Secluded Garden Path Exploration', caption: 'Hidden Garden Gems', description: 'Discovering serene and private corners within expansive, thoughtfully designed gardens.' },
-    { src: 'https://placehold.co/800x600/00CED1/FFFFFF?text=Water+Feature+with+Foliage+Accent', alt: 'Water Feature with Foliage Accent', caption: 'Lush Water Garden', description: 'Water features integrated with vibrant plant life, enhancing natural beauty.' },
-    { src: 'https://placehold.co/800x600/1E90FF/FFFFFF?text=Stone+Wall+and+Path+Construction', alt: 'Stone Wall and Path Construction', caption: 'Crafted Stone Work', description: 'Durable and beautiful stone retaining walls and pathways, built to last.' },
-    { src: 'https://placehold.co/800x600/4682B4/FFFFFF?text=Expansive+Green+Lawn+Space', alt: 'Expansive Green Lawn Space', caption: 'Perfect Lawns for Play', description: 'Vast, meticulously maintained green spaces ideal for recreation and relaxation.' },
-    { src: 'https://placehold.co/800x600/6A5ACD/FFFFFF?text=Modern+Garden+Lighting', alt: 'Modern Garden Lighting', caption: 'Illuminated Landscapes', description: 'Strategic lighting to enhance beauty and safety during evening hours.' },
-    { src: 'https://placehold.co/800x600/8A2BE2/FFFFFF?text=Flowering+Shrubs+and+Trees', alt: 'Flowering Shrubs and Trees', caption: 'Seasonal Blooms', description: 'A diverse selection of flowering plants ensuring color and life year-round.' },
+    { src: getImg(landcImagesAll, 'landc1.jpg'), alt: 'Garden with Stone Steps Overview', caption: 'Serene Garden Retreats', description: 'Beautifully crafted stone steps amidst lush greenery, inviting tranquility.' },
+    { src: getImg(gardenImagesAll, 'garden1.jpg'), alt: 'Manicured Lawn and Flowerbed Detail', caption: 'Vibrant Floral Displays', description: 'A perfectly manicured lawn complemented by colorful and diverse flowerbeds.' },
+    { src: getImg(treeImagesAll, 'tree-care.jpg'), alt: 'Lush Tropical Garden Path View', caption: 'Tropical Oasis Pathways', description: 'Inviting pathways winding through exotic foliage, creating a sense of discovery.' },
+    { src: getImg(artificialWaterfallImagesAll, 'artificial-water-fall1.jpg'), alt: 'Small Garden Waterfall Feature', caption: 'Tranquil Water Features', description: 'The soothing sound of a cascading garden waterfall adding peace to your space.' },
+    { src: getImg(walkwayImagesAll, 'pathway1.jpg'), alt: 'Stone Walkway with Greenery Surround', caption: 'Rustic Charm Walkways', description: 'Natural stone walkways blending seamlessly with the landscape, durable and beautiful.' },
+    { src: getImg(artificialWaterfallImagesAll, 'swimming-pool-construction.jpg'), alt: 'Ongoing Site Excavation Work', caption: 'Groundwork in Progress', description: 'Preparing the foundation for new landscape transformations with precision and care.' },
+    { src: getImg(landcImagesAll, 'landc2.jpg'), alt: 'New Landscape Development Phase', caption: 'Developing Future Green Spaces', description: 'Early stages of a large-scale landscape project, shaping the environment of tomorrow.' },
+    { src: getImg(gardenImagesAll, 'garden2.jpg'), alt: 'Stream and Rock Garden Integration', caption: 'Natural Stream Integration', description: 'Harmonious blend of water features and rockery, creating a natural ecosystem.' },
+    { src: getImg(gardenImagesAll, 'garden3.jpg'), alt: 'Colorful Tire Play Area Design', caption: 'Creative Play Solutions', description: 'Fun and safe play areas designed with recycled materials for sustainable enjoyment.' },
+    { src: getImg(cabroImagesAll, 'cabro1.jpg'), alt: 'Brick Paved Pathway Artistry', caption: 'Artistic Paved Paths', description: 'Intricate brick paving adding character and durability to your pathways.' },
+    { src: getImg(treeImagesAll, 'tree-care2.jpg'), alt: 'Secluded Garden Path Exploration', caption: 'Hidden Garden Gems', description: 'Discovering serene and private corners within expansive, thoughtfully designed gardens.' },
+    { src: getImg(treeImagesAll, 'tree-care3.jpg'), alt: 'Water Feature with Foliage Accent', caption: 'Lush Water Garden', description: 'Water features integrated with vibrant plant life, enhancing natural beauty.' },
+    { src: getImg(walkwayImagesAll, 'pathway2.jpg'), alt: 'Stone Wall and Path Construction', caption: 'Crafted Stone Work', description: 'Durable and beautiful stone retaining walls and pathways, built to last.' },
+    { src: getImg(landcImagesAll, 'landc3.jpg'), alt: 'Expansive Green Lawn Space', caption: 'Perfect Lawns for Play', description: 'Vast, meticulously maintained green spaces ideal for recreation and relaxation.' },
+    { src: getImg(walkwayImagesAll, 'pathway3.jpg'), alt: 'Modern Garden Lighting', caption: 'Illuminated Landscapes', description: 'Strategic lighting to enhance beauty and safety during evening hours.' },
+    { src: getImg(cabroImagesAll, 'cabro2.jpg'), alt: 'Flowering Shrubs and Trees', caption: 'Seasonal Blooms', description: 'A diverse selection of flowering plants ensuring color and life year-round.' },
   ];
 
   // Function to enhance project description using Gemini API
