@@ -21,6 +21,7 @@ const treeImagesAll = importAll(require.context('./images/portfolio/tree-care', 
 const walkwayImagesAll = importAll(require.context('./images/portfolio/walk-way', false, /\.(jpg|png|svg)$/));
 const cabroImagesAll = importAll(require.context('./images/portfolio/cabro-laying', false, /\.(jpg|png|svg)$/));
 const artificialWaterfallImagesAll = importAll(require.context('./images/portfolio/artificial-waterfall', false, /\.(jpg|png|svg)$/));
+const galleryImagesAll = importAll(require.context('./images/gallery', false, /\.(jpg|png|svg)$/));
 
 
 const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
@@ -147,7 +148,7 @@ const App = () => {
                   <div className="col-span-1 text-center md:text-right">
                     <h3 className="text-xl font-bold text-green-200 mb-2">Contact Us</h3>
                     <p className="mb-1 text-sm"><strong className="text-green-100">Head Office:</strong> Naivasha Road, P.O. Box 75113 – 00200, Nairobi, Kenya.</p>
-                    <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong>Antony Nduhiu</p>
+                    {/* <p className="mb-1 text-sm"><strong className="text-green-100">Main Contact:</strong>Antony Nduhiu</p> */}
                     <p className="mb-1 text-sm"><strong className="text-green-100">Telephone:</strong> <a href="tel:+254746887291" className="text-green-300 hover:underline">+254 746 887291</a> / <a href="tel:+254721474392" className="text-green-300 hover:underline">+254 722 117264</a></p>
                     <p className="mb-1 text-sm"><strong className="text-green-100">Email:</strong> <a href="mailto:info@ecogreencontractors.solutions" className="text-green-300 hover:underline">info@ecogreencontractors.solutions</a></p>
                   </div>
@@ -644,22 +645,15 @@ const Portfolio = () => {
   const [error, setError] = useState(null);
 
   const photoGalleryImages = [
-    { src: getImg(landcImagesAll, 'landc1.jpg'), alt: 'Garden with Stone Steps Overview', caption: 'Serene Garden Retreats', description: 'Beautifully crafted stone steps amidst lush greenery, inviting tranquility.' },
-    { src: getImg(gardenImagesAll, 'garden1.jpg'), alt: 'Manicured Lawn and Flowerbed Detail', caption: 'Vibrant Floral Displays', description: 'A perfectly manicured lawn complemented by colorful and diverse flowerbeds.' },
-    { src: getImg(treeImagesAll, 'tree-care.jpg'), alt: 'Lush Tropical Garden Path View', caption: 'Tropical Oasis Pathways', description: 'Inviting pathways winding through exotic foliage, creating a sense of discovery.' },
-    { src: getImg(artificialWaterfallImagesAll, 'artificial-water-fall1.jpg'), alt: 'Small Garden Waterfall Feature', caption: 'Tranquil Water Features', description: 'The soothing sound of a cascading garden waterfall adding peace to your space.' },
-    { src: getImg(walkwayImagesAll, 'pathway1.jpg'), alt: 'Stone Walkway with Greenery Surround', caption: 'Rustic Charm Walkways', description: 'Natural stone walkways blending seamlessly with the landscape, durable and beautiful.' },
-    { src: getImg(artificialWaterfallImagesAll, 'swimming-pool-construction.jpg'), alt: 'Ongoing Site Excavation Work', caption: 'Groundwork in Progress', description: 'Preparing the foundation for new landscape transformations with precision and care.' },
-    { src: getImg(landcImagesAll, 'landc2.jpg'), alt: 'New Landscape Development Phase', caption: 'Developing Future Green Spaces', description: 'Early stages of a large-scale landscape project, shaping the environment of tomorrow.' },
-    { src: getImg(gardenImagesAll, 'garden2.jpg'), alt: 'Stream and Rock Garden Integration', caption: 'Natural Stream Integration', description: 'Harmonious blend of water features and rockery, creating a natural ecosystem.' },
-    { src: getImg(gardenImagesAll, 'garden3.jpg'), alt: 'Colorful Tire Play Area Design', caption: 'Creative Play Solutions', description: 'Fun and safe play areas designed with recycled materials for sustainable enjoyment.' },
-    { src: getImg(cabroImagesAll, 'cabro1.jpg'), alt: 'Brick Paved Pathway Artistry', caption: 'Artistic Paved Paths', description: 'Intricate brick paving adding character and durability to your pathways.' },
-    { src: getImg(treeImagesAll, 'tree-care2.jpg'), alt: 'Secluded Garden Path Exploration', caption: 'Hidden Garden Gems', description: 'Discovering serene and private corners within expansive, thoughtfully designed gardens.' },
-    { src: getImg(treeImagesAll, 'tree-care3.jpg'), alt: 'Water Feature with Foliage Accent', caption: 'Lush Water Garden', description: 'Water features integrated with vibrant plant life, enhancing natural beauty.' },
-    { src: getImg(walkwayImagesAll, 'pathway2.jpg'), alt: 'Stone Wall and Path Construction', caption: 'Crafted Stone Work', description: 'Durable and beautiful stone retaining walls and pathways, built to last.' },
-    { src: getImg(landcImagesAll, 'landc3.jpg'), alt: 'Expansive Green Lawn Space', caption: 'Perfect Lawns for Play', description: 'Vast, meticulously maintained green spaces ideal for recreation and relaxation.' },
-    { src: getImg(walkwayImagesAll, 'pathway3.jpg'), alt: 'Modern Garden Lighting', caption: 'Illuminated Landscapes', description: 'Strategic lighting to enhance beauty and safety during evening hours.' },
-    { src: getImg(cabroImagesAll, 'cabro2.jpg'), alt: 'Flowering Shrubs and Trees', caption: 'Seasonal Blooms', description: 'A diverse selection of flowering plants ensuring color and life year-round.' },
+    { src: getImg(galleryImagesAll, 'car_shade.jpg'), alt: 'Car Shade', caption: 'Modern Car Shade', description: 'A stylish and functional car shade structure.' },
+    { src: getImg(galleryImagesAll, 'water_fall.jpg'), alt: 'Water Fall', caption: 'Natural Waterfall', description: 'A beautiful, tranquil waterfall feature.' },
+    { src: getImg(galleryImagesAll, 'flowers.jpg'), alt: 'Flowers', caption: 'Vibrant Flowers', description: 'Colorful flowers in full bloom.' },
+    { src: getImg(galleryImagesAll, 'pathways.jpg'), alt: 'Pathways', caption: 'Inviting Pathways', description: 'Well-designed garden pathways.' },
+    { src: getImg(galleryImagesAll, 'fire_outside.jpg'), alt: 'Outdoor Fire', caption: 'Outdoor Fire Feature', description: 'A cozy outdoor fire area for gatherings.' },
+    { src: getImg(galleryImagesAll, 'water_pool.jpg'), alt: 'Water Pool', caption: 'Refreshing Pool', description: 'A serene and inviting water pool.' },
+    { src: getImg(galleryImagesAll, 'house_flowers.jpg'), alt: 'House Flowers', caption: 'House with Flowers', description: 'A house surrounded by beautiful flowers.' },
+    { src: getImg(galleryImagesAll, 'kicc.jpg'), alt: 'KICC', caption: 'KICC Landscaping', description: 'Landscaping work at KICC.' },
+    { src: getImg(galleryImagesAll, 'out_door_landscaping.jpg'), alt: 'Outdoor Landscaping', caption: 'Outdoor Landscaping', description: 'Expansive outdoor landscaping project.' },
   ];
 
   // Function to enhance project description using Gemini API
@@ -788,20 +782,20 @@ const References = () => {
     {
       name: "Sister Mary",
       role: "In charge of work at Sisters of Charity of the Incarnate Word, Ukarimu Center",
-      contact: "+254 720 368 186",
+      // contact: "+254 720 368 186",
       testimonial: "Ecogreen transformed our center's grounds into a truly serene and beautiful space. Their dedication and craftsmanship are exceptional, and the biodigester system they installed is a testament to their innovative approach.",
     },
     {
       name: "Eng. John Njoka",
       role: "Landscaping and maintenance work within the International Golden Palm Hotel",
-      contact: "+254 722 949 462",
+      // contact: "+254 722 949 462",
       testimonial: "The team at Ecogreen consistently delivers outstanding landscaping and maintenance services. Their attention to detail keeps our hotel grounds immaculate, significantly enhancing our guests' experience.",
     },
     {
       name: "Architect Madja Povoden",
       role: "Maya Plan Architects",
       email: "maya.plan@yahoo.com",
-      contact: "+254 732 301 756",
+      // contact: "+254 732 301 756",
       testimonial: "Collaborating with Ecogreen is always a pleasure. Their expertise in landscape architecture and their commitment to realizing complex designs make them an invaluable partner on any project. Highly recommended for their professionalism and quality.",
     },
   ];
