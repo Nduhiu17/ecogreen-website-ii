@@ -22,9 +22,13 @@ const walkwayImagesAll = importAll(require.context('./images/portfolio/walk-way'
 const cabroImagesAll = importAll(require.context('./images/portfolio/cabro-laying', false, /\.(jpg|png|svg)$/));
 const artificialWaterfallImagesAll = importAll(require.context('./images/portfolio/artificial-waterfall', false, /\.(jpg|png|svg)$/));
 
-const TRACKING_ID = process.env.TRACKING_ID;
 
-ReactGA.initialize(TRACKING_ID);
+const TRACKING_ID = process.env.TRACKING_ID;
+if (TRACKING_ID) {
+  ReactGA.initialize(TRACKING_ID);
+} else {
+  console.warn('Google Analytics TRACKING_ID is not set. Skipping GA initialization.');
+}
 
 // Helper to get image by filename
 const getImg = (imgMap, filename) => imgMap[filename];
