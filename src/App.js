@@ -239,7 +239,7 @@ const ImageSlider = ({ images, title, heightClass = 'h-screen' }) => {
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
-          } bg-cover bg-center flex flex-col justify-end`}
+          } bg-cover bg-center flex flex-col justify-end h-full`}
           style={{ backgroundImage: `url(${image.src})` }}
           aria-label={image.alt}
         >
@@ -311,7 +311,7 @@ const HeroSection = () => {
       <ImageSlider
         images={heroImages}
         title="Ecogreen Landscapers Hero"
-        heightClass="min-h-[calc(100vh-64px)] sm:min-h-[calc(100vh-80px)] md:min-h-[calc(100vh-96px)] lg:min-h-[calc(100vh-104px)]"
+        heightClass="min-h-[calc(100vh-64px)]"
       />
     </section>
   );
@@ -333,7 +333,7 @@ const AboutUs = () => {
         <h2 className="text-4xl font-extrabold text-center text-green-800 mb-12">About Ecogreen Landscapers & Contractors</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="md:order-2">
-            <ImageSlider images={aboutImages} title="About Us Gallery" />
+            <ImageSlider images={aboutImages} title="About Us Gallery" heightClass="min-h-[calc(100vh-64px)]"/>
           </div>
           <div className="md:order-1 text-lg leading-relaxed text-gray-700">
             <h3 className="text-3xl font-bold text-green-700 mb-6">Your Trusted Partner in Landscape Transformation</h3>
@@ -454,7 +454,7 @@ const ServiceBlock = ({ title, description, images, reverse }) => {
         <p>{description}</p>
       </div>
       <div className={`${reverse ? 'md:order-1' : 'md:order-2'}`}>
-        <ImageSlider images={images} title={title} />
+        <ImageSlider images={images} title={title} heightClass="min-h-[calc(100vh-64px)]"/>
       </div>
     </div>
   );
@@ -791,7 +791,7 @@ const Portfolio = () => {
           <p className="text-lg leading-relaxed text-gray-700 text-center mb-8 max-w-3xl mx-auto">
             A picture is worth a thousand words. Explore our extensive photo gallery to witness the artistry and precision that defines Ecogreen's work. From lush garden landscapes and intricate Mazeras walkways to vibrant ongoing sites, these images are a testament to our dedication to creating beautiful and sustainable outdoor environments that stand the test of time.
           </p>
-          <ImageSlider images={photoGalleryImages} title="Our Photo Gallery" />
+          <ImageSlider images={photoGalleryImages} title="Our Photo Gallery" heightClass="min-h-[calc(100vh-64px)]"/>
         </div>
       </div>
     </section>
