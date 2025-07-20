@@ -20,6 +20,13 @@ export default function BlogMainPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
+      {/* Link to return to main landing page */}
+      <div className="mb-8 flex justify-start">
+        <a href="/" className="text-green-700 hover:underline font-semibold text-base flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          Back to Home
+        </a>
+      </div>
       <Helmet>
         <title>Ecogreen Blog | Landscaping Tips, Projects & Inspiration</title>
         <meta name="description" content="Read expert landscaping tips, project showcases, and inspiration from Ecogreen Landscapers & Contractors. Stay updated with the latest in sustainable gardening, plant care, and outdoor design." />
