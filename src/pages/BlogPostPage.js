@@ -51,11 +51,11 @@ export default function BlogPostPage() {
         <html lang="en" />
         <title>{post.title} | Ecogreen Blog</title>
         <meta name="description" content={post.excerpt} />
-        <meta name="keywords" content={post.tags.join(", ")} />
+        <meta name="keywords" content={post.tags.join(", ") + ', SustainableLandscapingKenya, EcoFriendlyLandscapingNairobi, GreenGardensKenya, LandscapingContractorsNairobi, OutdoorDesignKenya, DroughtTolerantPlantsKE, RainwaterHarvestingNairobi, PermeablePavingKenya, GardenDesignNairobi, EcogreenLandscapers, NairobiHomes, KenyaGardens, ExcavationForPathways, SitePreparationKenya, TreeCareKenya, ProfessionalTreeCareNairobi, TreePruningNairobi, TreeRemovalKenya, ArboristNairobi, LandscapingKenya, GardenMaintenanceNairobi, HealthyTreesNairobi, PropertyValueKenya, TreeTrimmingServicesKE, StumpGrindingKenya, EcoFriendlyTreeCare, DreamGardenKE, HardscapingKenya, SoftscapingNairobi, EcoFriendlyGardensKE, GardenPlanning, PlantDiseasesKenya, GardenHealthNairobi, EcoFriendlyPestControlKE, ProfessionalGardenCareNairobi, IrrigationSystemsKenya, SoilImprovementNairobi, HealthyPlantsKenya, UrbanLandscapingNairobi, LandscapingProjectKenya, CommercialLandscapingKE, GreenSpacesNairobi, PropertyTransformationKE'} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#166534" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <link rel="canonical" href={shareUrl} />
         {/* Open Graph */}
         <meta property="og:type" content="article" />
