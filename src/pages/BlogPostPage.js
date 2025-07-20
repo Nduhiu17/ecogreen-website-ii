@@ -22,10 +22,22 @@ export default function BlogPostPage() {
     .slice(0, 3);
 
   // Social share URLs
-  const shareUrl = `https://ecogreencontractors.solutions/blog/${post.id}`;
+  const shareUrl = `https://www.ecogreen.co.ke/blog/${post.id}`;
   const shareText = encodeURIComponent(`${post.title} | Ecogreen Blog`);
   const shareDesc = encodeURIComponent(post.excerpt);
   const shareImage = encodeURIComponent(post.image);
+
+  // JSON-LD structured data for this blog post
+  const postJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image,
+    "author": { "@type": "Person", "name": post.author },
+    "datePublished": post.date,
+    "url": shareUrl,
+    "description": post.excerpt
+  };
 
   // Latest posts: 4 most recent, excluding current post
   const latestPosts = blogPosts
@@ -34,7 +46,7 @@ export default function BlogPostPage() {
     .slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-12">
+    <main className="min-h-screen bg-gray-50 pb-12" itemScope itemType="https://schema.org/BlogPosting">
       <Helmet>
         <title>{post.title} | Ecogreen Blog</title>
         <meta name="description" content={post.excerpt} />
@@ -51,22 +63,24 @@ export default function BlogPostPage() {
         <meta name="twitter:image" content={post.image} />
         <meta name="robots" content="index, follow" />
         <html lang="en" />
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">{JSON.stringify(postJsonLd)}</script>
       </Helmet>
       <div className="container mx-auto px-4 pt-8 max-w-6xl">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Main Content */}
-          <div className="flex-1 min-w-0">
+          <article className="flex-1 min-w-0" itemScope itemType="https://schema.org/Article">
             <Link to="/blog" className="text-green-600 hover:underline mb-4 inline-block">&larr; Back to Blog</Link>
-            <h1 className="text-4xl font-extrabold text-green-800 mb-2">{post.title}</h1>
+            <h1 className="text-4xl font-extrabold text-green-800 mb-2" itemProp="headline">{post.title}</h1>
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-sm text-gray-500">{new Date(post.date).toLocaleDateString()}</span>
-              <span className="text-sm text-green-700 font-semibold">By {post.author}</span>
+              <span className="text-sm text-gray-500" itemProp="datePublished">{new Date(post.date).toLocaleDateString()}</span>
+              <span className="text-sm text-green-700 font-semibold" itemProp="author">By {post.author}</span>
             </div>
-            <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-6" />
-            <div className="prose prose-green max-w-none mb-6" dangerouslySetInnerHTML={{ __html: post.content }} />
+            <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-6" itemProp="image" />
+            <div className="prose prose-green max-w-none mb-6" dangerouslySetInnerHTML={{ __html: post.content }} itemProp="articleBody" />
             <div className="flex flex-wrap gap-2 mb-6">
               {post.tags.map(tag => (
-                <span key={tag} className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">{tag}</span>
+                <span key={tag} className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs" itemProp="keywords">{tag}</span>
               ))}
             </div>
             {/* Social Sharing Buttons */}
@@ -102,7 +116,7 @@ export default function BlogPostPage() {
             </div>
             {/* Related Posts */}
             {relatedPosts.length > 0 && (
-              <div className="mt-12">
+              <section className="mt-12" aria-label="Related Posts">
                 <h2 className="text-2xl font-bold text-green-800 mb-4">Related Posts</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {relatedPosts.map(rp => (
@@ -121,12 +135,12 @@ export default function BlogPostPage() {
                     </Link>
                   ))}
                 </div>
-              </div>
+              </section>
             )}
             <Link to="/blog" className="text-green-600 hover:underline mt-8 inline-block">&larr; Back to Blog</Link>
-          </div>
+          </article>
           {/* Latest Posts Sidebar */}
-          <aside className="w-full lg:w-80 flex-shrink-0">
+          <aside className="w-full lg:w-80 flex-shrink-0" aria-label="Latest Posts">
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
               <h2 className="text-xl font-bold text-green-800 mb-4">Latest Posts</h2>
               <ul className="space-y-4">
@@ -146,6 +160,6 @@ export default function BlogPostPage() {
           </aside>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
