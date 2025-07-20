@@ -27,11 +27,11 @@ export default function BlogPostPage() {
   const shareDesc = encodeURIComponent(post.excerpt);
   const shareImage = encodeURIComponent(post.image);
 
-  // Latest posts: 5 most recent, excluding current post
+  // Latest posts: 4 most recent, excluding current post
   const latestPosts = blogPosts
     .filter(p => p.id !== post.id)
     .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5);
+    .slice(0, 4);
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">

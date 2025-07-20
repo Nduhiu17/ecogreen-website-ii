@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactGA from 'react-ga4';
+import { blogPosts } from "./blogData";
 
 // import logo
 import BlogPostPage from './pages/BlogPostPage';
@@ -847,7 +848,7 @@ const Portfolio = () => {
       description: "Ecogreen secured a contract to provide comprehensive landscaping services for A.F.C offices throughout the country. This involved designing and creating both hard and soft landscaping works, followed by consistent maintenance over an extended period, ensuring a professional and inviting outdoor presence for all their branches.",
       images: [
         { src: 'https://placehold.co/800x600/90EE90/FFFFFF?text=AFC+Offices+1', alt: 'AFC Offices Landscaping 1', caption: 'Corporate Campus Design', description: 'Professional landscaping for a welcoming office environment.' },
-        { src: 'https://placehold.co/800x600/90EE90/FFFFFF?text=AFC+Offices+2', alt: 'AFC Offices Landscaping 2', caption: 'Hard & Soft Landscaping', description: 'Combining structural elements with natural beauty.' },
+        { src: getImg(landcImagesAll, 'landc2.jpg'), alt: 'AFC Offices Landscaping 2', caption: 'Hard & Soft Landscaping', description: 'Combining structural elements with natural beauty.' },
         { src: 'https://placehold.co/800x600/90EE90/FFFFFF?text=AFC+Offices+3', alt: 'AFC Offices Landscaping 3', caption: 'Nationwide Maintenance', description: 'Consistent upkeep across multiple branch locations.' },
       ],
     },
@@ -900,7 +901,7 @@ const Portfolio = () => {
         { src: 'https://placehold.co/800x600/FFD700/FFFFFF?text=Golden+Palm+Biodigester+2', alt: 'Golden Palm Biodigester System 2', caption: 'Aesthetic Dam Creation', description: 'Utilizing recycled water for beautiful landscape features.' },
         { src: 'https://placehold.co/800x600/FFD700/FFFFFF?text=Golden+Palm+Biodigester+3', alt: 'Golden Palm Biodigester System 3', caption: 'Vibrant Fishpond Design', description: 'Creating thriving aquatic environments within the hotel grounds.' },
       ],
-    },
+       },
     {
       name: "Canadian Embassy Rosslyn Courts 7",
       originalDescription: "We initially designed and landscaped Rosslyn Court 7 with the previous owner. Following the Canadian Embassy's acquisition and management, we continued to maintain the property for a period of three years, ensuring its pristine condition and adherence to high standards.",
@@ -1142,36 +1143,9 @@ const References = () => {
 
 // Blog Section (New Component)
 const BlogSection = () => {
-  const blogPosts = [
-    {
-      id: 1,
-      title: "The Art of Sustainable Landscaping in Kenya",
-      date: "July 10, 2025",
-      snippet: "Discover how Ecogreen integrates eco-friendly practices and local flora to create stunning, sustainable landscapes that thrive in Kenya's unique climate...",
-      image: "https://placehold.co/400x250/A2CC8A/333333?text=Sustainable+Landscaping",
-    },
-    {
-      id: 2,
-      title: "Transforming Urban Spaces: Our Latest Project in Nairobi",
-      date: "June 25, 2025",
-      snippet: "Get an exclusive look at our recent urban landscaping project in the heart of Nairobi, showcasing innovative designs for compact spaces...",
-      image: "https://placehold.co/400x250/C4E0B2/333333?text=Urban+Project",
-    },
-    {
-      id: 3,
-      title: "The Benefits of Professional Tree Care for Your Property",
-      date: "June 15, 2025",
-      snippet: "Learn why regular tree cutting, pruning, and maintenance by experts are crucial for the health and safety of your garden and property...",
-      image: "https://placehold.co/400x250/8BBF7A/333333?text=Tree+Care+Tips",
-    },
-    {
-      id: 4,
-      title: "Designing Dream Gardens: A Step-by-Step Guide",
-      date: "May 30, 2025",
-      snippet: "From initial concept to final bloom, our guide walks you through the process of creating your perfect garden with Ecogreen's expertise...",
-      image: "https://placehold.co/400x250/B8D9A8/333333?text=Dream+Garden+Guide",
-    },
-  ];
+  // Sort blogPosts by date descending and show the latest 4
+  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const latestPosts = sortedPosts.slice(0, 4);
 
   return (
     <section id="blog" className="py-16 bg-gray-50 px-4 sm:px-6 lg:px-8">
@@ -1182,13 +1156,13 @@ const BlogSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {blogPosts.map((post) => (
+          {latestPosts.map((post) => (
             <div key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105">
               <img src={post.image} alt={post.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/400x250/CCCCCC/333333?text=Blog+Image`; }} />
               <div className="p-6 text-left">
                 <h3 className="text-xl font-semibold text-green-800 mb-2">{post.title}</h3>
-                <p className="text-sm text-gray-500 mb-3">{post.date}</p>
-                <p className="text-gray-700 text-base mb-4">{post.snippet}</p>
+                <p className="text-sm text-gray-500 mb-3">{new Date(post.date).toLocaleDateString()}</p>
+                <p className="text-gray-700 text-base mb-4">{post.excerpt}</p>
                 <Link to={`/blog/${post.id}`} className="text-green-600 hover:underline font-medium">Read More &rarr;</Link>
               </div>
             </div>
@@ -1205,7 +1179,6 @@ const BlogSection = () => {
     </section>
   );
 };
-
 
 // Contact Us Section
 const ContactUs = () => {
