@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 // import logo
+import BlogMainPage from './pages/BlogMainPage';
+import { Link } from 'react-router-dom';
 import logo from './images/logo.png';
 // import all images from images/heroes folder
 // Utility to import all images from a folder
@@ -343,6 +345,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/user/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/blog" element={<BlogMainPage />} />
           <Route path="/" element={
             <>
               <div className="font-sans antialiased text-gray-800 bg-white">
@@ -359,7 +362,7 @@ const App = () => {
                     <NavLink href="#services">Services</NavLink>
                     <NavLink href="#portfolio">Portfolio</NavLink>
                     {/* <NavLink href="#references">References</NavLink> */}
-                    <NavLink href="#blog">Blog</NavLink>
+                    <NavLink as={Link} to="/blog">Blog</NavLink>
                     {/* WhatsApp Nav Icon */}
                     <a
                       href="https://wa.me/254746887291"
