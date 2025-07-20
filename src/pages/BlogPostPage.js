@@ -16,17 +16,28 @@ export default function BlogPostPage() {
     );
   }
 
+  // Related posts: find up to 3 other posts with at least one tag in common
+  const relatedPosts = blogPosts
+    .filter(p => p.id !== post.id && p.tags.some(tag => post.tags.includes(tag)))
+    .slice(0, 3);
+
+  // Social share URLs
+  const shareUrl = `https://ecogreencontractors.solutions/blog/${post.id}`;
+  const shareText = encodeURIComponent(`${post.title} | Ecogreen Blog`);
+  const shareDesc = encodeURIComponent(post.excerpt);
+  const shareImage = encodeURIComponent(post.image);
+
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <Helmet>
         <title>{post.title} | Ecogreen Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="keywords" content={post.tags.join(", ")} />
-        <link rel="canonical" href={`https://ecogreencontractors.solutions/blog/${post.id}`} />
+        <link rel="canonical" href={shareUrl} />
         <meta property="og:title" content={`${post.title} | Ecogreen Blog`} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://ecogreencontractors.solutions/blog/${post.id}`} />
+        <meta property="og:url" content={shareUrl} />
         <meta property="og:image" content={post.image} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Ecogreen Blog`} />
@@ -49,7 +60,61 @@ export default function BlogPostPage() {
             <span key={tag} className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">{tag}</span>
           ))}
         </div>
-        <Link to="/blog" className="text-green-600 hover:underline">&larr; Back to Blog</Link>
+        {/* Social Sharing Buttons */}
+        <div className="mb-8 flex gap-4 items-center">
+          <span className="font-semibold text-gray-700">Share:</span>
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+            title="Share on Facebook"
+          >
+            Facebook
+          </a>
+          <a
+            href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${shareText}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+            title="Share on Twitter"
+          >
+            Twitter
+          </a>
+          <a
+            href={`https://wa.me/?text=${shareText}%20${encodeURIComponent(shareUrl)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:underline"
+            title="Share on WhatsApp"
+          >
+            WhatsApp
+          </a>
+        </div>
+        {/* Related Posts */}
+        {relatedPosts.length > 0 && (
+          <div className="mt-12">
+            <h2 className="text-2xl font-bold text-green-800 mb-4">Related Posts</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedPosts.map(rp => (
+                <Link
+                  key={rp.id}
+                  to={`/blog/${rp.id}`}
+                  className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 flex flex-col"
+                >
+                  <img src={rp.image} alt={rp.title} className="w-full h-32 object-cover" />
+                  <div className="p-4 flex-1 flex flex-col">
+                    <h3 className="text-lg font-bold text-green-800 mb-1">{rp.title}</h3>
+                    <p className="text-sm text-gray-500 mb-1">{new Date(rp.date).toLocaleDateString()}</p>
+                    <p className="text-gray-700 text-sm flex-1">{rp.excerpt}</p>
+                    <span className="text-green-600 hover:underline font-medium mt-auto">Read More &rarr;</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+        <Link to="/blog" className="text-green-600 hover:underline mt-8 inline-block">&larr; Back to Blog</Link>
       </div>
     </div>
   );
