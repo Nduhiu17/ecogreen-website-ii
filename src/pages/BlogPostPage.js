@@ -22,7 +22,7 @@ export default function BlogPostPage() {
     .slice(0, 3);
 
   // Social share URLs
-  const shareUrl = `https://www.ecogreen.co.ke/blog/${post.id}`;
+  const shareUrl = `https://ecogreencontractors.solutions/blog/${post.id}`;
   const shareText = encodeURIComponent(`${post.title} | Ecogreen Blog`);
   const shareDesc = encodeURIComponent(post.excerpt);
   const shareImage = encodeURIComponent(post.image);

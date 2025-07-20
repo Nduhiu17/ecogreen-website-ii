@@ -35,13 +35,13 @@ export default function BlogMainPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#166534" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
-        <link rel="canonical" href="https://www.ecogreen.co.ke/blog" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="canonical" href="https://ecogreencontractors.solutions/blog" />
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Ecogreen Blog | Sustainable Landscaping, Garden Design & Outdoor Living in Kenya" />
         <meta property="og:description" content="Explore expert tips, project showcases, and the latest trends in sustainable landscaping, garden design, and outdoor living in Kenya. Stay inspired with Ecogreen's world-class blog." />
-        <meta property="og:url" content="https://www.ecogreen.co.ke/blog" />
+        <meta property="og:url" content="https://ecogreencontractors.solutions/blog" />
         <meta property="og:image" content="https://placehold.co/1200x630/A2CC8A/333333?text=Ecogreen+Blog" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -55,14 +55,14 @@ export default function BlogMainPage() {
           "@type": "Blog",
           "name": "Ecogreen Blog",
           "description": "Explore expert tips, project showcases, and the latest trends in sustainable landscaping, garden design, and outdoor living in Kenya. Stay inspired with Ecogreen's world-class blog.",
-          "url": "https://www.ecogreen.co.ke/blog",
+          "url": "https://ecogreencontractors.solutions/blog",
           "blogPost": paginated.map(post => ({
             "@type": "BlogPosting",
             "headline": post.title,
             "image": post.image,
             "author": { "@type": "Person", "name": post.author },
             "datePublished": post.date,
-            "url": `https://www.ecogreen.co.ke/blog/${post.id}`,
+            "url": `https://ecogreencontractors.solutions/blog/${post.id}`,
             "description": post.excerpt
           }))
         })}</script>
