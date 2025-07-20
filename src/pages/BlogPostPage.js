@@ -93,7 +93,7 @@ export default function BlogPostPage() {
             <div className="mb-8 flex gap-4 items-center">
               <span className="font-semibold text-gray-700">Share:</span>
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                href={`https://www.facebook.com/dialog/share?app_id=2466621547069886&display=popup&href=${encodeURIComponent(shareUrl)}&redirect_uri=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
