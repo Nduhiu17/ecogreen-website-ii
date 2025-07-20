@@ -7,6 +7,7 @@ import ReactGA from 'react-ga4';
 import BlogPostPage from './pages/BlogPostPage';
 import BlogMainPage from './pages/BlogMainPage';
 import { Link } from 'react-router-dom';
+
 import logo from './images/logo.png';
 // import all images from images/heroes folder
 // Utility to import all images from a folder
@@ -452,11 +453,20 @@ const App = () => {
 };
 
 // Navigation Link Component
-const NavLink = ({ href, children }) => (
-  <a href={href} className="text-white hover:text-green-300 transition-colors duration-300 text-lg font-medium">
-    {children}
-  </a>
-);
+const NavLink = ({ href, to, children }) => {
+  if (to) {
+    return (
+      <Link to={to} className="text-white hover:text-green-300 transition-colors duration-300 text-lg font-medium">
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={href} className="text-white hover:text-green-300 transition-colors duration-300 text-lg font-medium">
+      {children}
+    </a>
+  );
+};
 
 // Mobile Menu Component
 const MobileMenu = () => {
