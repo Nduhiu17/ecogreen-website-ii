@@ -1194,7 +1194,11 @@ const BlogSection = () => {
             </div>
           ))}
         </div>
-        <button className="mt-12 bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl">
+        {/* View All Blog Posts Button navigates to /blog */}
+        <button
+          className="mt-12 bg-green-700 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+          onClick={() => window.location.assign('/blog')}
+        >
           View All Blog Posts
         </button>
       </div>
