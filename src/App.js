@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
 // import logo
+import BlogPostPage from './pages/BlogPostPage';
 import BlogMainPage from './pages/BlogMainPage';
 import { Link } from 'react-router-dom';
 import logo from './images/logo.png';
@@ -345,6 +346,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/user/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
           <Route path="/blog" element={<BlogMainPage />} />
           <Route path="/" element={
             <>
@@ -362,7 +364,7 @@ const App = () => {
                     <NavLink href="#services">Services</NavLink>
                     <NavLink href="#portfolio">Portfolio</NavLink>
                     {/* <NavLink href="#references">References</NavLink> */}
-                    <NavLink as={Link} to="/blog">Blog</NavLink>
+                    <NavLink to="/blog">Blog</NavLink>
                     {/* WhatsApp Nav Icon */}
                     <a
                       href="https://wa.me/254746887291"
@@ -474,7 +476,7 @@ const MobileMenu = () => {
           <NavLink href="#services">Services</NavLink>
           <NavLink href="#portfolio">Portfolio</NavLink>
           <NavLink href="#references">References</NavLink>
-          <NavLink href="#blog">Blog</NavLink>
+          <NavLink to="/blog">Blog</NavLink>
               {/* WhatsApp Nav Icon */}
           <a
             href="https://wa.me/254746887291"

@@ -5,7 +5,7 @@ import { blogPosts } from "../blogData";
 
 export default function BlogPostPage() {
   const { id } = useParams();
-  const post = blogPosts.find(p => p.id === id);
+  const post = blogPosts.find(p => String(p.id) === String(id));
 
   if (!post) {
     return (
