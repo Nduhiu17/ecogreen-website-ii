@@ -80,18 +80,18 @@ const App = () => {
             scrollbar-color: #059669 #e6f4ea !important;
           }
         `}</style>
-        <title>Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company</title>
+        <title>Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Solutions Company</title>
         <meta name="description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya. Contact us for residential and commercial landscaping solutions." />
         <link rel="canonical" href="https://ecogreencontractors.solutions/" />
-        <meta property="og:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company" />
+        <meta property="og:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Solutions Company" />
         <meta property="og:description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ecogreencontractors.solutions/" />
-        <meta property="og:image" content="https://ecogreencontractors.solutions/logo192.png" />
+        <meta property="og:image" content="https://ecogreencontractors.solutions/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Company" />
-        <meta name="twitter:description" content="Ecogreen Landscapers & Contractors: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya." />
-        <meta name="twitter:image" content="https://ecogreencontractors.solutions/logo192.png" />
+        <meta name="twitter:title" content="Ecogreen Landscapers & Contractors | Kenya's Premier Landscaping Solutions Company" />
+        <meta name="twitter:description" content="Ecogreen Landscapers & Contractors Solutions: Over 30 years of excellence in garden landscaping, waterfall creation, walkway construction, and sustainable outdoor environments in Kenya." />
+        <meta name="twitter:image" content="https://ecogreencontractors.solutions/logo.png" />
         <meta name="robots" content="index, follow" />
         <html lang="en" />
         {/* Structured Data: Organization, Website, LocalBusiness */}
@@ -99,9 +99,9 @@ const App = () => {
           {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Ecogreen Landscapers & Contractors",
+            "name": "Ecogreen Landscapers & Contractors Solutions",
             "url": "https://ecogreencontractors.solutions/",
-            "logo": "https://ecogreencontractors.solutions/logo192.png",
+            "logo": "https://ecogreencontractors.solutions/logo.png",
             "sameAs": [
               "https://www.facebook.com/profile.php?id=61578337620398",
               "https://x.com/9Ecogreen"
@@ -119,7 +119,7 @@ const App = () => {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers and Contractors",
+            "name": "Ecogreen Landscapers and Contractors Solutions",
             "image": "https://ecogreencontractors.solutions/logo.png",
             "@id": "https://ecogreencontractors.solutions/",
             "url": "https://ecogreencontractors.solutions/",
@@ -155,7 +155,7 @@ const App = () => {
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Ecogreen Landscapers and Contractors",
+            "name": "Ecogreen Landscapers and Contractors Solutions",
             "url": "https://ecogreencontractors.solutions/",
             "potentialAction": {
               "@type": "SearchAction",
@@ -173,7 +173,7 @@ const App = () => {
           "jobTitle": "Founder & Director",
           "worksFor": {
             "@type": "Organization",
-            "name": "Ecogreen Landscapers and Contractors"
+            "name": "Ecogreen Landscapers and Contractors Solutions"
           },
           "address": {
             "@type": "PostalAddress",
@@ -256,7 +256,7 @@ const App = () => {
           "description": "Comprehensive garden design, soft and hard landscaping, plant selection, lawn and pathway laying, wall construction, and irrigation system installation.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
@@ -269,7 +269,7 @@ const App = () => {
           "description": "Regular garden upkeep, disease control, mowing, weeding, hedge trimming, cleaning, and garden waste removal.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
@@ -282,7 +282,7 @@ const App = () => {
           "description": "Tree trimming, health care, disease and insect treatment, safe tree cutting, pruning, inspection, planting, and debris removal.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
@@ -295,7 +295,7 @@ const App = () => {
           "description": "Construction of garden walkways, access roads, tarmac connecting roads, and paved driveways for all conditions.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
@@ -308,7 +308,7 @@ const App = () => {
           "description": "Ground preparation, soil removal, compaction, hardcore laying, aggregate, and paving block installation for roads and car parks.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
@@ -321,7 +321,7 @@ const App = () => {
           "description": "Design and construction of water fountains, swimming pools, koi ponds, and multi-tiered fountains for residential and commercial properties.",
           "provider": {
             "@type": "LocalBusiness",
-            "name": "Ecogreen Landscapers & Contractors"
+            "name": "Ecogreen Landscapers & Contractors Solutions"
           },
           "areaServed": "Kenya"
         }
