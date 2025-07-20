@@ -1189,7 +1189,7 @@ const BlogSection = () => {
                 <h3 className="text-xl font-semibold text-green-800 mb-2">{post.title}</h3>
                 <p className="text-sm text-gray-500 mb-3">{post.date}</p>
                 <p className="text-gray-700 text-base mb-4">{post.snippet}</p>
-                <a href="#" className="text-green-600 hover:underline font-medium">Read More &rarr;</a>
+                <Link to={`/blog/${post.id}`} className="text-green-600 hover:underline font-medium">Read More &rarr;</Link>
               </div>
             </div>
           ))}
