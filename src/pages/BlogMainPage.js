@@ -2,6 +2,13 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { blogPosts } from "../blogData";
 
+const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
+if (TRACKING_ID) {
+  ReactGA.initialize(TRACKING_ID);
+} else {
+  console.warn('Google Analytics TRACKING_ID is not set. Skipping GA initialization.');
+}
+
 const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)));
 
 const POSTS_PER_PAGE = 4;

@@ -3,6 +3,14 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { blogPosts } from "../blogData";
 
+const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
+if (TRACKING_ID) {
+  ReactGA.initialize(TRACKING_ID);
+} else {
+  console.warn('Google Analytics TRACKING_ID is not set. Skipping GA initialization.');
+}
+
+
 export default function BlogPostPage() {
   const { id } = useParams();
   const post = blogPosts.find(p => String(p.id) === String(id));
