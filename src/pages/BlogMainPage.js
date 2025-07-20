@@ -28,9 +28,14 @@ export default function BlogMainPage() {
         </a>
       </div>
       <Helmet>
+        <html lang="en" />
         <title>Ecogreen Blog | Sustainable Landscaping, Garden Design & Outdoor Living in Kenya</title>
         <meta name="description" content="Explore expert tips, project showcases, and the latest trends in sustainable landscaping, garden design, and outdoor living in Kenya. Stay inspired with Ecogreen's world-class blog." />
         <meta name="keywords" content="Kenya landscaping blog, sustainable landscaping Kenya, garden design Nairobi, outdoor living Kenya, Ecogreen blog, landscaping tips, project showcases, eco-friendly gardens, Nairobi landscaping, gardening Kenya" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#166534" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="canonical" href="https://www.ecogreen.co.ke/blog" />
         {/* Open Graph */}
         <meta property="og:type" content="website" />
@@ -44,7 +49,6 @@ export default function BlogMainPage() {
         <meta name="twitter:description" content="Explore expert tips, project showcases, and the latest trends in sustainable landscaping, garden design, and outdoor living in Kenya. Stay inspired with Ecogreen's world-class blog." />
         <meta name="twitter:image" content="https://placehold.co/1200x630/A2CC8A/333333?text=Ecogreen+Blog" />
         <meta name="robots" content="index, follow" />
-        <html lang="en" />
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -103,7 +107,7 @@ export default function BlogMainPage() {
                 aria-label={`Read more about ${post.title}`}
                 itemProp="url"
               >
-                <img src={post.image} alt={post.title} className="w-full h-48 object-cover" loading="lazy" itemProp="image" />
+                <img src={post.image} alt={post.title || 'Blog post image'} className="w-full h-48 object-cover" loading="lazy" itemProp="image" />
               </a>
               <div className="p-6 flex-1 flex flex-col">
                 <h2 className="text-2xl font-bold text-green-800 mb-2" itemProp="headline">

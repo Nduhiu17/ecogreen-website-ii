@@ -48,21 +48,27 @@ export default function BlogPostPage() {
   return (
     <main className="min-h-screen bg-gray-50 pb-12" itemScope itemType="https://schema.org/BlogPosting">
       <Helmet>
+        <html lang="en" />
         <title>{post.title} | Ecogreen Blog</title>
         <meta name="description" content={post.excerpt} />
         <meta name="keywords" content={post.tags.join(", ")} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#166534" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="canonical" href={shareUrl} />
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
         <meta property="og:title" content={`${post.title} | Ecogreen Blog`} />
         <meta property="og:description" content={post.excerpt} />
-        <meta property="og:type" content="article" />
         <meta property="og:url" content={shareUrl} />
         <meta property="og:image" content={post.image} />
+        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Ecogreen Blog`} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={post.image} />
         <meta name="robots" content="index, follow" />
-        <html lang="en" />
         {/* JSON-LD Structured Data */}
         <script type="application/ld+json">{JSON.stringify(postJsonLd)}</script>
       </Helmet>
@@ -76,7 +82,7 @@ export default function BlogPostPage() {
               <span className="text-sm text-gray-500" itemProp="datePublished">{new Date(post.date).toLocaleDateString()}</span>
               <span className="text-sm text-green-700 font-semibold" itemProp="author">By {post.author}</span>
             </div>
-            <img src={post.image} alt={post.title} className="w-full h-64 object-cover rounded-lg mb-6" itemProp="image" />
+            <img src={post.image} alt={post.title || 'Blog post image'} className="w-full h-64 object-cover rounded-lg mb-6" itemProp="image" />
             <div className="prose prose-green max-w-none mb-6" dangerouslySetInnerHTML={{ __html: post.content }} itemProp="articleBody" />
             <div className="flex flex-wrap gap-2 mb-6">
               {post.tags.map(tag => (
@@ -125,7 +131,7 @@ export default function BlogPostPage() {
                       to={`/blog/${rp.id}`}
                       className="bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 hover:scale-105 flex flex-col"
                     >
-                      <img src={rp.image} alt={rp.title} className="w-full h-32 object-cover" />
+                      <img src={rp.image} alt={rp.title || 'Related post image'} className="w-full h-32 object-cover" />
                       <div className="p-4 flex-1 flex flex-col">
                         <h3 className="text-lg font-bold text-green-800 mb-1">{rp.title}</h3>
                         <p className="text-sm text-gray-500 mb-1">{new Date(rp.date).toLocaleDateString()}</p>
@@ -147,7 +153,7 @@ export default function BlogPostPage() {
                 {latestPosts.map(lp => (
                   <li key={lp.id}>
                     <Link to={`/blog/${lp.id}`} className="flex items-center gap-3 group">
-                      <img src={lp.image} alt={lp.title} className="w-16 h-16 object-cover rounded-md border border-green-100" />
+                      <img src={lp.image} alt={lp.title || 'Latest post image'} className="w-16 h-16 object-cover rounded-md border border-green-100" />
                       <div>
                         <h3 className="text-base font-semibold text-green-700 group-hover:underline line-clamp-2">{lp.title}</h3>
                         <span className="text-xs text-gray-500">{new Date(lp.date).toLocaleDateString()}</span>
