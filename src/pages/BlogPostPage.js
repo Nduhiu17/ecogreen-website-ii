@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { blogPosts } from "../blogData";
+import ReactGA from 'react-ga4';
 
 const TRACKING_ID = process.env.REACT_APP_TRACKING_ID;
 if (TRACKING_ID) {
